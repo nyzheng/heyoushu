@@ -1,0 +1,229 @@
+﻿@model heyoushu.Models.ForumResult
+@{
+    var data = Model;
+    var BannerList = Model.BannerList;
+    var CategoryList = Model.CategoryList;
+    var QuestionList = Model.QuestionList;
+}
+
+<link href="~/css/forum.css" rel="stylesheet" asp-append-version="true" />
+
+<div class="forum-container">
+    <div class="icon">
+        <a href="https://lin.ee/RgBPIee"><img src="~/upload/images/line.png" alt="" /></a>
+        <a
+            href="https://www.facebook.com/people/%E8%8D%B7%E5%8F%8B%E8%88%92%E9%86%AB%E8%97%A5%E8%81%AF%E7%9B%9F/61552790938978/"><img
+                src="~/upload/images/facebook.png" alt="" /></a>
+    </div>
+    <div class="area1">
+        <div class="content">
+            <div class="banner-box"><img src="@("/upload/images/" + @BannerList[0].FileName)" /></div>
+            <div class="mobile-banner-box"><img src="@("/upload/images/" + @BannerList[1].FileName)" /></div>
+        </div>
+    </div>
+
+    <div class="area2">
+        <div class="content">
+            <!-- 分類按鈕 -->
+            <div class="btn-box">
+                @{
+                    <button class="category-button active" id="category-0" onclick="switchCategory(0)">全部</button>
+                    for (int i = 0; i < CategoryList.Count; i++)
+                    {
+                        <button class="category-button" id="@("category-" + CategoryList[i].Id)" onclick="switchCategory(@CategoryList[i].Id)">@CategoryList[i].CategoryName</button>
+                    }
+                }
+            </div>
+            <!-- 中圖片 -->
+            <div class="banner-box"> <img src="@("/upload/images/" + @BannerList[2].FileName)" />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 問題與回答 -->
+    <div class="area3">
+        <div class="content">
+            @{
+                for (int i = 0; i < QuestionList.Count; i++)
+                {
+                    var question = QuestionList[i];
+                    <!-- 每個問題的父容器 -->
+                    <div class="question @("category-" + question.Category_Id)">
+
+                        <!-- 不可收合部分 -->
+                        <div class="box-header">
+                            <div class="question-icon">
+                                <img src="@("/upload/images/question-icon.png")" />
+                            </div>
+                            <div class="text">
+                                <div>提問者：@question.Name</div>
+                                <div class="question-header">@question.Content</div>
+                            </div>
+                            <button class="custom-plus-button" id="@("plus-" + question.Id)" onclick="switchAnswer(@question.Id);"></button>
+                        </div>
+
+                        <!-- 可收合部分 -->
+                        <div class="answer-box" id="@("answer-" + question.Id)">
+                            @{
+                                for (int j = 0; j < question.AnswerList.Count; j++)
+                                {
+                                    var answer = question.AnswerList[j];
+                                    <div class="answer-content">
+                                        <div class="answer-detail">
+                                            <div class="answer-detail-box" style="color: #E84C2E;">
+                                                <div class="img-box">
+                                                    <img src="@("/upload/images/" + @answer.FileName)" alt="" />
+                                                </div>
+                                            @answer.Name @answer.Position @answer.Pharmacy</div>
+                                            <div>@answer.Content</div>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+                            <div class="reply-title">回覆問答</div>
+                            <div class="reply-content">
+                                <div class="reply-detail">
+                                    <form onsubmit="submitAnswer(event,@question.Id)">
+                                        <div class="reply-input">
+                                            <div>
+                                                <label for="@("answer-" + question.Id + "-name")">暱稱：</label>
+                                                <input type="text" id="@("answer-" + question.Id + "-name")"
+                                                    name="@("answer-" + question.Id + "-name")" required>
+                                            </div>
+                                            <div>
+                                                <label for="@("answer-" + question.Id + "-content")">回覆：</label>
+                                                <textarea id="@("answer-" + question.Id + "-content")"
+                                                    name="@("answer-" + question.Id + "-content")" rows="4" cols="50"
+                                                    required></textarea>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button type="submit"><img src="@("/upload/images/submit-icon.png")" /></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="area4">
+        <div class="content">
+            <div class="request-title">
+                \\我也要發問//
+            </div>
+            <div class="request-content">
+                <form onsubmit="submitQuestion(event)">
+                    <div>
+                        <label for="question-name">暱稱：</label>
+                        <input type="text" id="question-name" name="question-name" required>
+                    </div>
+                    <div>
+                        <label for="question-content">問題：</label>
+                        <textarea id="question-content" name="question-content" rows="4" cols="50" required></textarea>
+                    </div>
+                    <div class="submit-box">
+                        <button type="submit">發送</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const switchCategory = (id) => {
+        if (!id) {
+            let questions = document.getElementsByClassName('question');
+            for (let elQuestion of questions) {
+                elQuestion.style.display = 'block';
+            }
+        }
+        if (id) {
+            let questions = document.getElementsByClassName('question');
+            for (let elQuestion of questions) {
+                elQuestion.style.display = 'none';
+            }
+            let fitCategoryQuestions = document.getElementsByClassName(`category-${id}`);
+            for (let elQuestion of fitCategoryQuestions) {
+                elQuestion.style.display = 'block';
+            }
+        }
+        const elBtns = document.getElementsByClassName('category-button');
+        Array.from(elBtns).forEach(btn => {
+            if (btn.classList.contains('active')) {
+                btn.classList.remove('active');
+            }
+        });
+        const elBtn = document.getElementById(`category-${id}`);
+        elBtn.classList.add('active');
+    }
+    const switchAnswer = (id) => {
+        let elAnswer = document.getElementById(`answer-${id}`);
+        if (!elAnswer.style.display || elAnswer.style.display == "flex") {
+            elAnswer.style.display = "none"
+        }
+        else{
+            elAnswer.style.display = "flex";
+        }
+        let elPlus = document.getElementById(`plus-${id}`);
+        if (elPlus.classList.contains('minus')) {
+            elPlus.classList.remove('minus');
+        } else {
+            elPlus.classList.add('minus');
+        }
+    }
+
+    const submitQuestion = (event) => {
+        event.preventDefault();
+        var name = document.getElementById('question-name').value;
+        var content = document.getElementById('question-content').value;
+        fetch("/api/Forum/Create_Question", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                Name: name,
+                Content: content
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert("已經提交問題，即將重整頁面");
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    const submitAnswer = (event, id) => {
+        event.preventDefault();
+        var name = document.getElementById(`answer-${id}-name`).value;
+        var content = document.getElementById(`answer-${id}-content`).value;
+        fetch("/api/Forum/Create_Answer", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                Question_Id: id,
+                Name: name,
+                Content: content
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert("已經提交回答，即將重整頁面");
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>

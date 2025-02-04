@@ -1,0 +1,461 @@
+﻿.edit-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 900px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.edit-window > .box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+    .edit-window > .box > span {
+        width: 100px;
+    }
+
+.edit-window > .box > .img-box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+    .edit-window > .box > .img-box > span {
+        width: 100px;
+    }
+
+.edit-window > .box > .img-box > img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.edit-window > .box > input {
+    width: calc(100% - 100px);
+    height: 30px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 700;
+    border: solid 1px #000000;
+}
+
+.edit-window > .box > textarea {
+    /* width: calc(100% - 68px); */
+    width: 100%;
+    height: calc(500px - 70px - 40px - 50px);
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 700;
+    border: solid 1px #000000;
+}
+
+.edit-window > .button-box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+
+.edit-window > .button-box > button {
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 0px 9px #000000;
+    border-radius: 10px;
+}
+
+.edit-window > .button-box > button:hover {
+    background-color: #e84c2e;
+    color: #ffffff;
+}
+
+.alertWindow {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 100px);
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 220px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.alertWindow > .box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.alertWindow > .button-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+
+.alertWindow > .button-box > button {
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 0px 9px #000000;
+    border-radius: 10px;
+}
+
+.alertWindow > .button-box > button:hover {
+    background-color: #e84c2e;
+    color: #ffffff;
+}
+
+.doneWindow {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 100px);
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 220px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.doneWindow > .box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    color: #ffffff;
+    background-color: #e84c2e;
+}
+
+.doneWindow {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 100px);
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 220px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.doneWindow > .box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    color: #ffffff;
+    background-color: #e84c2e;
+}
+
+.pharmacist-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 800px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.pharmacist-window > .box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+.pharmacist-window > ul {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: none;
+    border-right: none;
+}
+.pharmacist-window > ul > li {
+    /* width: calc((100%- 50px) / 3); */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 20px;
+    border: solid 1px #e84c2e;
+    border-radius: 20px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.pharmacist-window > ul > li > .img-box > img {
+    width: 50px;
+    height: 50px;
+}
+.button-box {
+    margin: 20px;
+}
+.button-box button {
+    /* border: solid 1px #e84c2e;
+    border-radius: 20px;*/
+    margin: 0 20px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 0px 9px #000000;
+    border-radius: 10px;
+}
+
+.selected {
+    background-color: #e84c2e;
+}
+
+.option-window {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 100px);
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 500px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+    .option-window > .box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 80px;
+        box-sizing: border-box;
+    }
+
+    .option-window > .button-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 40px;
+        position: relative;
+        bottom: 0;
+        right: 0;
+    }
+
+        .option-window > .button-box > button {
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0px 0px 9px #000000;
+            border-radius: 10px;
+        }
+
+            .option-window > .button-box > button:hover {
+                background-color: #e84c2e;
+                color: #ffffff;
+            }
+
+.edit-window-2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 800px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+    .edit-window-2 > .box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 40px;
+        box-sizing: border-box;
+    }
+
+        .edit-window-2 > .box > span {
+            width: 150px;
+        }
+
+        .edit-window-2 > .box > .img-box {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+            .edit-window-2 > .box > .img-box > img {
+                max-width: 200px;
+                max-height: 200px;
+            }
+
+        .edit-window-2 > .box > input {
+            width: 100%;
+            height: 30px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 700;
+            border: solid 1px #000000;
+        }
+
+        .edit-window-2 > .box > .file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0px 0px 9px #000000;
+            border-radius: 20px;
+        }
+
+            .edit-window-2 > .box > .file-input > input[type="file"] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+        .edit-window-2 > .box > textarea {
+            /* width: calc(100% - 68px); */
+            width: 100%;
+            height: calc(500px - 70px - 40px - 50px);
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 700;
+            border: solid 1px #000000;
+        }
+
+    .edit-window-2 > .button-box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 40px;
+        position: relative;
+        bottom: 0;
+        right: 0;
+    }
+
+        .edit-window-2 > .button-box > button {
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0px 0px 9px #000000;
+            border-radius: 10px;
+        }
+
+            .edit-window-2 > .button-box > button:hover {
+                background-color: #e84c2e;
+                color: #ffffff;
+            }

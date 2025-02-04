@@ -1,0 +1,89 @@
+﻿
+@media screen and (min-width: 768px) {
+    footer {
+        background-color: #e84c2e;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0px;
+    }
+
+        footer > nav {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            align-items: center;
+            max-width: 1280px;
+            width: calc(100% - 40px);
+        }
+
+            footer > nav > .logo {
+                width: 150px;
+                padding: 40px 30px 30px 30px;
+            }
+
+                footer > nav > .logo > img {
+                    width: 100%;
+                }
+
+        footer ul {
+            list-style: none;
+        }
+
+            footer ul li a {
+                text-decoration: none;
+                color: #ffffff;
+                display: flex;
+                padding: 10px;
+                gap: 10px;
+                white-space: nowrap;
+            }
+
+        footer .menu li a .img-box {
+            position: relative;
+            width: 6px;
+        }
+
+            footer .menu li a .img-box img {
+                width: 100%;
+            }
+
+        footer .line {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #e84c2e;
+        }
+
+        footer .menu {
+            width: 390px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            footer .menu li {
+                width: 50%; /* 每行兩個元素，佔據 50% 寬度 */
+                box-sizing: border-box; /* 確保元素的寬度包括內邊距和邊框 */
+            }
+
+        footer .supplier-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: flex-start;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 390px;
+            position: relative;
+        }
+
+            footer .supplier-menu > p {
+                width: 390px;
+                white-space: pre-line;
+                color: #ffffff;
+            }
+}

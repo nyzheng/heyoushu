@@ -1,0 +1,545 @@
+﻿@model heyoushu.Models.ProductContentResult
+
+@{
+    var data = Model;
+    var PageDataList = Model.PageDataList;
+    var ContentList = Model.ContentList;
+    var CommentList = Model.CommentList;
+    var imgList = new List<ProductContentModel>(); //複數
+    var linkList = new List<ProductContentModel>();
+    var tagList = new List<ProductContentModel>(); //複數
+    var titleList = new List<ProductContentModel>();
+    var introList = new List<ProductContentModel>();
+    var scoreList = new List<ProductContentModel>();
+    var popList = new List<ProductContentModel>();
+    var specList = new List<ProductContentModel>();
+    var detailList = new List<ProductContentModel>(); //複數
+    var bannerList = new List<ProductContentModel>();
+
+
+}
+
+
+
+
+
+@foreach (var item in ContentList)
+{
+    if (item.Area == "img")
+    {
+        imgList.Add(item);
+    }
+    if (item.Area == "link")
+    {
+        linkList.Add(item);
+    }
+    if (item.Area == "tag")
+    {
+        tagList.Add(item);
+    }
+    if (item.Area == "title")
+    {
+        titleList.Add(item);
+    }
+    if (item.Area == "intro")
+    {
+        introList.Add(item);
+    }
+    if (item.Area == "score")
+    {
+        scoreList.Add(item);
+    }
+    if (item.Area == "pop")
+    {
+        popList.Add(item);
+    }
+    if (item.Area == "spec")
+    {
+        specList.Add(item);
+    }
+    if (item.Area == "detail")
+    {
+        detailList.Add(item);
+    }
+    if (item.Area == "banner")
+    {
+        bannerList.Add(item);
+    }
+}
+<link href="~/css/product-content.css" rel="stylesheet" asp-append-version="true" />
+<link href="~/css/slider-product.css" rel="stylesheet" asp-append-version="true" />
+
+
+
+<div class="product-container">
+    <div class="area1">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>藥師優品推薦</span>
+            </div>
+            <div class="recommand-container">
+                @{
+                    {
+                        <div class="product" href="">
+                            @* 輪播圖 *@
+                            <div class="left-box">
+                                <div class="slider-container">
+                                    <a href="javascript:;" class="control_prev"><i class="fa-solid fa-angle-left"></i></a>
+                                    <a href="javascript:;" class="control_next"><i class="fa-solid fa-angle-right"></i></a>
+                                    <ul>
+                                        @{
+                                            foreach(var img in imgList)
+                                            {
+                                                <li>
+                                                    <a href="javascript:;"><img src="@("/upload/images/" + img.FileName)" /></a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                    <div class="dots_wrapper">
+                                        @{
+                                            for(int i=0; i < imgList.Count(); i++)
+                                            {
+                                                if (i == 0)
+                                                {
+                                                    <div class="dot_navigation slider_active_dot"></div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="dot_navigation"></div>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <a class="official-link" href="@linkList[0].FileName">@linkList[0].Text</a>
+                            </div>
+
+                            <div class="right-box">
+                                <div class="product-tag">@tagList[0].Text</div>
+                                <div class="product-title">
+                                    <p>@titleList[0].Text</p>
+                                </div>
+                                <div class="product-intro">
+                                    <p>@introList[0].Text
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <button onclick="expandContainer()">﹀ 閲讀更多</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="area2">
+        <div class="content">
+            <div class="up">
+                <div class="column-line orange"></div>
+                <div class="score">
+                    <div>
+                        產品評分
+                    </div>
+                    <div>
+                        @scoreList[0].Text<p>/5</p>
+                    </div>
+                </div>
+                <div class="column-line orange"></div>
+                <div class="disscussion">
+                    <div>
+                        參與民眾
+                    </div>
+                    <div>
+                        @popList[0].Text<p>/人</p>
+                    </div>
+                </div>
+                <div class="column-line orange"></div>
+            </div>
+            <div class="down">
+                <div class="img-box">
+                    @{
+                        foreach(var comment in CommentList)
+                        {
+                            <img src="@("/upload/images/" + comment.Pharmacist.FileName)" alt="" />
+                        }
+                    }
+                    <img class="others" src="@("/upload/images/group 100.png")" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="area3">
+        <div class="content">
+            @*
+            <div class="row-line orange"></div>
+            <div class="product-record-container">
+                <div class="product-record-title" onclick="toggleRecord()">
+                    ﹀ 評分紀錄表
+                </div>
+                <div class="product-record-content" id="recordContent">
+                    <div class="column-line grey"></div>
+                    <div class="left">@specList[0].Text</div>
+                    <div class="column-line grey"></div>
+                    <div class="right">@specList[0].FileName</div>
+                    <div class="column-line grey"></div>
+                </div>
+            </div>
+            *@
+            <div class="row-line orange"></div>
+
+            <div class="product-detail-container">
+                <div class=" product-detail-title" onclick="toggleDetail()">
+                    ﹀ 詳細商品資料
+                </div>
+                <div class="product-detail-content" id="detailContent">
+                    @{
+                        foreach (var detail in detailList)
+                        {
+                            if (detail.Text != "")
+                            {
+                                <p>@detail.Text</p>
+                            }
+                            if (detail.FileName != "")
+                            {
+                                <img src="@("/upload/images/" + @detail.FileName)" alt="" />
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="row-line orange"></div>
+        </div>
+
+
+
+    </div>
+
+    <div class="area4">
+        <div class="content">
+            <div class="comment-container">
+                <div class="banner-box">
+                    @{
+                        foreach (var banner in bannerList)
+                        {
+                            <img src="@("/upload/images/" + banner.FileName)" alt="" />
+                        }
+                    }
+                </div>
+                <div class="comment">
+                    @{
+                        foreach (var comment in CommentList)
+                        {
+                            <div class="comment-item">
+                                <div class="img-box">
+                                    <img src="@("/upload/images/" + comment.Pharmacist.FileName)" alt="" />
+                                </div>
+                                <div class="text-box">
+                                    <div class="up">
+                                        <div class="name">@comment.Pharmacist.Name @comment.Pharmacist.Position @comment.Pharmacist.Pharmacy </div>
+                                        <div class="stars">
+                                            <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                            <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                            <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                            <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                            <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                        </div>
+                                    </div>
+                                    <span class="number">@comment.Score/5星</span>
+                                    <div class="score">
+                                    </div>
+                                    <div class="down">@comment.Text</div>
+                                </div>
+                            </div>
+                            <div class="row-line grey"></div>
+                        }
+                    }
+                    <a class="check-more" href="javascript:;" onclick="toggleShowComment()">瀏覽更多評價</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="area5">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>@PageDataList[4].Text</span>
+            </div>
+            <div class="disclaimer">@PageDataList[5].Text</div>
+        </div>
+    </div>
+    
+
+    
+    <div class="area6">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>@PageDataList[6].Text</span>
+            </div>
+            <div class="item-container">
+
+
+
+                <div class="left-box">
+                    <img src="@("/upload/images/" + @PageDataList[0].FileName)" alt="" />
+                    <div class="join" id="join"><a href="@PageDataList[0].Link">@PageDataList[0].Text</a></div>
+                </div>
+                <div class="right-box">
+                    <img src="@("/upload/images/" + @PageDataList[1].FileName)" alt="" />
+                    <div class="join" id="join"><a href="@PageDataList[1].Link">@PageDataList[1].Text</a></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/slider-product.js"></script>
+
+
+
+
+<script>
+    function expandContainer() {
+        const container = document.querySelector('.product-intro')
+        container.classList.toggle('expanded')
+        const moreButton = document.querySelector('.more button');
+        const introText = document.querySelector('.product-intro');
+        // 更改按鈕文字
+        if (introText.classList.contains('expanded')) {
+            moreButton.textContent = '︿ 收合';
+        } else {
+            moreButton.textContent = '﹀ 閲讀更多';
+        }
+    }
+
+</script>
+
+
+<script>
+
+    function adjustImageDisplay() {
+        const downContainer = document.querySelector('.area2 > .content > .down');
+        const imgBox = downContainer.querySelector('.img-box');
+        const images = imgBox.querySelectorAll('img');
+        const othersImage = imgBox.querySelector('.others');
+
+        const downWidth = downContainer.clientWidth; // 獲取 .down 元素的寬度
+        let maxImagesToShow = Math.floor(downWidth / 110); // 根據 .down 元素的寬度計算最多可容納的圖片數量，包括間隔
+
+        if (images.length > maxImagesToShow) {
+            // 調整 img-box 的寬度
+            imgBox.style.width = `${maxImagesToShow * 110}px`;
+
+            // 隱藏超過最大顯示數量的圖片
+            for (let i = maxImagesToShow; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+
+            // 如果有 .others 圖片，則顯示它
+            if (othersImage) {
+                othersImage.style.display = 'block';
+            }
+        } else {
+            // 如果圖片數量未超過最大顯示數量，則隱藏 .others 圖片
+            if (othersImage) {
+                othersImage.style.display = 'none';
+            }
+        }
+    }
+
+    // 頁面加載完成時和窗口大小變化時調用 adjustImageDisplay 函數
+    document.addEventListener('DOMContentLoaded', adjustImageDisplay);
+    window.addEventListener('resize', adjustImageDisplay);
+</script>
+
+
+
+@* 評分紀錄表 *@
+<script>
+    function toggleRecord() {
+        const content = document.getElementById('recordContent');
+        const title = document.querySelector('.product-record-title');
+
+        content.classList.toggle('visible');
+
+        if (content.classList.contains('visible')) {
+            content.style.height = content.scrollHeight + 'px';
+            content.style.opacity = 1;
+            content.style.margin = '20px';
+        } else {
+            content.style.height = '0';
+            content.style.opacity = 0;
+            content.style.margin = '0';
+        }
+    }
+</script>
+
+
+
+@* 詳細資料 *@
+<script>
+    function toggleDetail() {
+        const content = document.getElementById('detailContent');
+        const title = document.querySelector('.product-detail-title');
+
+        content.classList.toggle('visible');
+
+        if (content.classList.contains('visible')) {
+            content.style.height = 'auto';
+            content.style.opacity = 1;
+            content.style.padding = '20px';
+            title.innerHTML = '︿ 詳細商品資料';
+
+        } else {
+            content.style.height = '0';
+            content.style.opacity = 0;
+            content.style.padding = '0';
+            title.innerHTML = '﹀ 詳細商品資料'
+
+        }
+    }
+</script>
+
+@* 評論星星設定 *@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // 獲取所有評論元素
+        const productElements = document.querySelectorAll('.text-box');
+
+        // 遍歷每個評論元素
+        productElements.forEach((productElement) => {
+            // 獲取當前評論的評分值
+            const scoreElement = productElement.querySelector('.number');
+            const score = parseFloat(scoreElement.innerText);
+
+            // 獲取當前產品的星星容器元素
+            const starsContainer = productElement.querySelector('.stars');
+            const starImages = starsContainer.querySelectorAll('img');
+
+            // 計算全星數量和半星狀態
+            const fullStars = Math.floor(score);
+            const decimalPart = score - fullStars;
+            const hasHalfStar = decimalPart >= 0.1 && decimalPart <= 0.9;
+
+            // 設置每顆星星的填充狀態
+            for (let i = 0; i < starImages.length; i++) {
+                if (i < fullStars) {
+                    // 顯示全填充的星星
+                    starImages[i].src = "/upload/images/star-full.svg";
+                    starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+                } else if (i === fullStars && hasHalfStar) {
+                    // 顯示半填充的星星
+                    starImages[i].src = "/upload/images/star-half.svg";
+                    starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+                } else {
+                    // 顯示空心的星星s
+                    starImages[i].src = "/upload/images/star-empty.svg";
+                    starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+                }
+            }
+        });
+    });
+
+</script>
+
+
+
+
+
+
+@* 查看更多評論初始設定 *@
+<script>
+
+    //獲取dom元素
+    const commentContainer = document.querySelector('.comment');
+    const comments = commentContainer.querySelectorAll('.comment-item');
+    const rowLines = commentContainer.querySelectorAll('.row-line');
+    const checkMoreLink = commentContainer.querySelector('.check-more');
+
+    // 初始顯示的評論數量和最大評論數量
+    const initialVisibleComments = 2;
+    const maxVisibleComments = comments.length;
+
+
+
+    // 點擊切換元素屬性
+    function toggleShowComment() {
+        // 檢查 commentContainer 是否有 visible 屬性
+        if (commentContainer.classList.contains('visible')) {
+            // 如果有 visible 屬性，則隱藏評論並刪除 visible 屬性
+            closeComment();
+            commentContainer.classList.remove("visible");
+        } else {
+            // 如果沒有 visible 屬性，則顯示評論並添加 visible 屬性
+            showComment();
+            commentContainer.classList.add("visible");
+        }
+    }
+
+    // 檢查是否有 visible 屬性
+    function checkClass() {
+        const commentContainer = document.querySelector('.comment');
+        if (commentContainer.classList.contains('visible')) {
+            console.log('commentContainer 元素有 visible 屬性');
+            return true
+        } else {
+            console.log('commentContainer 元素沒有 visible 屬性');
+            return false
+        }
+    }
+
+
+    // 顯示元素
+    function showComment() {
+        for (let i = initialVisibleComments; i < maxVisibleComments; i++) {
+            comments[i].style.height = 'auto';
+            comments[i].style.opacity = '1';
+            comments[i].style.visibility = 'visible';
+            comments[i].style.margin = '40px 0 0 0';
+            rowLines[i - 1].style.display = 'flex';
+            checkMoreLink.textContent = '收起'
+        }
+    }
+
+    // 隱藏元素
+    function closeComment() {
+        for (let i = initialVisibleComments; i < maxVisibleComments; i++) {
+            comments[i].style.height = '0';
+            comments[i].style.visibility = 'hidden';
+            comments[i].style.opacity = '0';
+            comments[i].style.margin = '0';
+            rowLines[i - 1].style.display = 'none';
+            checkMoreLink.textContent = '瀏覽更多評價'
+
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        closeComment()
+    });
+
+
+</script>

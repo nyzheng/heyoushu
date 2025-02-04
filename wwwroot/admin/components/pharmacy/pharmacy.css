@@ -1,0 +1,116 @@
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei';
+    font-size: 16px;
+}
+
+body {
+    background-color: 
+        
+        
+        f8f8f8;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .pharmacy-container {
+        width: 100%;
+    }
+
+        .pharmacy-container > .area1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .pharmacy-container > .area1 > .content {
+                width: calc(100% - 40px);
+                max-width: 1280px;
+                padding: 0 60px;
+            }
+
+                .pharmacy-container > .area1 > .content > .title {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 40px;
+                    margin: 40px 0;
+                }
+
+
+                    .pharmacy-container > .area1 > .content > .title > a {
+                        font-size: 26px;
+                        font-weight: 700;
+                        color: #e84c2e;
+                        border: solid 1px #e84c2e;
+                        border-radius: 30px;
+                        padding: 5px 30px;
+                    }
+
+                        .pharmacy-container > .area1 > .content > .title > a.active {
+                            font-size: 26px;
+                            font-weight: 700;
+                            background-color: #e84c2e;
+                            color: #ffffff;
+                            border: solid 1px #e84c2e;
+                            border-radius: 30px;
+                            padding: 5px 30px;
+                        }
+
+                .pharmacy-container > .area1 > .content > .store-container > .item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 40px;
+                }
+
+                .pharmacy-container > .area1 > .content > .store-container > .store-box {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 60px;
+                    margin: 0 0 40px 0;
+                }
+
+                    .pharmacy-container > .area1 > .content > .store-container > .store-box > .store {
+                        width: calc((100% - 120px) / 3);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        position: relative;
+                    }
+
+                        .pharmacy-container > .area1 > .content > .store-container > .store-box > .store > .img-box {
+                            width: 100%;
+                            height: 210px;
+                        }
+
+                        .pharmacy-container > .area1 > .content > .store-container > .store-box > .store > p {
+                            font-weight: 700;
+                        }
+
+                        .pharmacy-container > .area1 > .content > .store-container > .store-box > .store > .img-box > img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+}
+

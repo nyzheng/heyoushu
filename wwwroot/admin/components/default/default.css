@@ -1,0 +1,156 @@
+﻿@media screen and (max-width: 767px) {
+}
+
+@media screen and (min-width: 768px) {
+    .default-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+        .default-container > .area1 {
+            width: 200px;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            padding: 50px 0;
+        }
+
+            .default-container > .area1 > img {
+                max-width: 100%;
+                max-height: 100px;
+                margin-top: 24px;
+            }
+
+            .default-container > .area1 > nav {
+                width: 100%;
+            }
+
+            .default-container > .area1 ul {
+                width: 100%;
+                height: calc(100% - 44px);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 10px;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+
+            .default-container > .area1 li {
+                width: 100%;
+                height: 40px;
+                color: #000000;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 700;
+            }
+
+                .default-container > .area1 li:hover,
+                .default-container > .area1 li.active {
+                    background-color: #e84c2e;
+                    border-radius: 10px;
+                    color: #ffffff;
+                    width: 80%;
+                }
+
+        /* ---------------------------------------------------------------------------------------------------- */
+
+        .default-container > .area2 {
+            width: calc(100% - 200px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0px 20px;
+        }
+
+            .default-container > .area2 > .up {
+                width: 100%;
+                height: 50px;
+                border-bottom: 2px solid #dddddd;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .default-container > .area2 > .down {
+                width: 100%;
+                height: calc(100% - 70px);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin-bottom: 20px;
+                padding: 20px;
+            }
+
+    /* ---------------------------------------------------------------------------------------------------- */
+
+    .sidebar-container {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .sidebar-container .active {
+            background-color: #8ac1cc;
+            color: #ffffff;
+        }
+
+        .sidebar-container .img-box {
+            display: flex;
+            justify-content: center;
+        }
+
+            .sidebar-container .img-box > img {
+                width: 100px;
+                height: 100px;
+                margin: 50px 0;
+            }
+
+        .sidebar-container ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar-container li {
+            font-family: 'NotoSansTCBold', sans-serif;
+            color: #aaaaaa;
+            display: flex;
+            height: 50px;
+            width: 200px;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .sidebar-container li .active {
+                background-color: #8ac1cc;
+            }
+
+    /* ---------------------------------------------------------------------------------------------------- */
+
+    .logout-container button {
+        width: 50px;
+        height: 30px;
+        background-color: #f89a8b;
+        border-radius: 20px;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+}

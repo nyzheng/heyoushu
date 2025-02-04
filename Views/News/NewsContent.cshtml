@@ -1,0 +1,87 @@
+﻿@model heyoushu.Models.NewsContentResult
+
+@{
+    var News_Id = Model.News_Id;
+    var Title = Model.Title;
+    var FileName = Model.FileName;
+    var NewsContent = Model.NewsContent;
+    var LatestNews = Model.LatestNews;
+    var CreationDate = Model.CreationDate;
+    var HeadContent = Model.HeadContent;
+}
+@section HeadContent {
+    @Html.Raw(HeadContent)
+}
+<link href="~/css/news_content.css" rel="stylesheet" asp-append-version="true" />
+
+<div class="article-content-container">
+    <div class="area1">
+        <div class="content">
+            <div class="news-container">
+                <div class="left">
+                    <div class="focus-box">
+                        <h1>@Title</h1>
+                        <h3>@CreationDate</h3>
+                        <div class="focus-img-box">
+                            <img src="@("/upload/images/" + FileName)" alt="" />
+                        </div>
+                        <div class="focus-text">
+                            @{
+                                foreach (var content in NewsContent)
+                                {
+                                    if (content.TypeSetting == "h4")
+                                    {
+                                        <h4>@content.Text</h4>
+                                    }
+                                    if (content.TypeSetting == "h5")
+                                    {
+                                        <h5>@content.Text</h5>
+                                    }
+                                    if (content.TypeSetting == "p")
+                                    {
+                                        <p>@content.Text</p>
+                                    }
+                                    if (content.TypeSetting == "img")
+                                    {
+                                        <div class="focus-img-box">
+                                            <img src="@("/upload/images/" + content.FileName)" alt="" />
+                                        </div>
+                                    }
+                                }
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="right-content">
+                        <div class="hot-box">
+                            <div class="title">
+                                <div class="cross-box">
+                                    <div class="cross-row"></div>
+                                    <div class="cross-column"></div>
+                                </div>
+                                <span>最新消息</span>
+                            </div>
+                            <ul>
+                                @{
+                                    for (int i = 0; i < LatestNews.Count; i++)
+                                    {
+                                        var news = LatestNews[i];
+                                        <li>
+                                            <a class="hot-box-text" href="@("/News/Content/" + news.Id)">@news.Title</a>
+                                        </li>
+                                        if (i != LatestNews.Count - 1)
+                                        {
+                                            <li class="line"></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

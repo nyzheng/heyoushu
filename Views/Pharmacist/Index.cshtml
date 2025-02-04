@@ -1,0 +1,109 @@
+﻿@model heyoushu.Models.Backstage.PharmacistProfileResult ;
+
+@{
+    var pharmacist = Model.Pharmacist;
+    var profile = Model.PharmacistProfile;
+    var linkData = Model.PharmacistLink;
+}
+<link href="~/css/introduce.css" rel="stylesheet" />
+<div class="introduce-page-container">
+    <div class="area1">
+        <div class="content">
+            <div class="doctor-container">
+                <div class="title">
+                    <div class="cross-box">
+                        <div class="cross-row"></div>
+                        <div class="cross-column"></div>
+                    </div>
+                    <span>藥師簡介</span>
+                </div>
+                <div class="information">
+                    <div class="icon">
+                        <a href="@(linkData.Link1.Length > 0 ? linkData.Link1 : "javascript:;")"><img src="/upload/images/introduce_icon_1.png" alt="" /></a>
+                        <a href="@(linkData.Link2.Length > 0 ? linkData.Link2 : "javascript:;")"><img src="/upload/images/introduce_icon_2.png" alt="" /></a>
+                        <a href="@(linkData.Link3.Length > 0 ? linkData.Link3 : "javascript:;")"><img src="/upload/images/introduce_icon_3.png" alt="" /></a>
+                    </div>
+                    <div class="doctor-pic">
+                        <img src="@("/upload/images/" + pharmacist.FileName)" alt="" />
+                    </div>
+                    <div class="doctor-detail">
+                        <div>
+                            <p style="color: #e84c2e">
+                                <span style="font-size: 36px">@pharmacist.Name </span>
+                                <span style="font-size: 24px">@pharmacist.Position </span>
+                                <span style="font-size: 24px">@pharmacist.Pharmacy</span>
+                            </p>
+                        </div>
+                        <ul>
+                            @{
+                                foreach(var item in profile)
+                                {
+                                    if (item.Area == "position")
+                                    {
+                                        <li style="font-size: 20px">@item.Text</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <ul>
+                            @{
+                                foreach (var item in profile)
+                                {
+                                    if (item.Area == "certification")
+                                    {
+                                        <li style="font-size: 20px">@item.Text</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="area2">
+        <div class="content">
+            <div class="row-line"></div>
+        </div>
+    </div>
+
+    <div class="area3">
+        <div class="content">
+            @{
+                foreach (var item in profile)
+                {
+                    if (item.Area == "article")
+                    {
+                        if(item.TypeSetting == "text1")
+                        {
+                            <div class="text1">
+                                <div class="img-box">
+                                    <img src="@("/upload/images/" + item.FileName)" alt="" />
+                                </div>
+                                <p>@item.Text</p>
+                            </div>
+                        }
+                        if (item.TypeSetting == "text2")
+                        {
+                            <div class="text2">
+                                <div class="img-box">
+                                    <img src="@("/upload/images/" + item.FileName)" alt="" />
+                                </div>
+                                <p>@item.Text</p>
+                            </div>
+                        }
+                        if (item.TypeSetting == "text3")
+                        {
+                            <div class="text3">
+                                <div class="img-box">
+                                    <img src="@("/upload/images/" + item.FileName)" alt="" />
+                                </div>
+                                <p>@item.Text</p>
+                            </div>
+                        }
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

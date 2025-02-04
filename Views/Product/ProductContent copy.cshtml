@@ -1,0 +1,493 @@
+﻿@model heyoushu.Models.ProductContentResult
+
+@{
+    var data = Model;
+    var ContentList = Model.ContentList;
+    var CommentList = Model.CommentList;
+    var imgList = new List<ProductContentModel>(); //複數
+    var linkList = new List<ProductContentModel>();
+    var tagList = new List<ProductContentModel>(); //複數
+    var titleList = new List<ProductContentModel>();
+    var introList = new List<ProductContentModel>();
+    var scoreList = new List<ProductContentModel>();
+    var popList = new List<ProductContentModel>();
+    var specList = new List<ProductContentModel>();
+    var detailList = new List<ProductContentModel>(); //複數
+    var bannerList = new List<ProductContentModel>();
+}
+
+
+
+
+
+@foreach (var item in ContentList)
+{
+    if (item.Area == "img")
+    {
+        imgList.Add(item);
+    }
+    if (item.Area == "link")
+    {
+        linkList.Add(item);
+    }
+    if (item.Area == "tag")
+    {
+        tagList.Add(item);
+    }
+    if (item.Area == "title")
+    {
+        titleList.Add(item);
+    }
+    if (item.Area == "intro")
+    {
+        introList.Add(item);
+    }
+    if (item.Area == "score")
+    {
+        scoreList.Add(item);
+    }
+    if (item.Area == "pop")
+    {
+        popList.Add(item);
+    }
+    if (item.Area == "spec")
+    {
+        specList.Add(item);
+    }
+    if (item.Area == "detail")
+    {
+        detailList.Add(item);
+    }
+    if (item.Area == "banner")
+    {
+        bannerList.Add(item);
+    }
+}
+<link href="~/css/product-content.css" rel="stylesheet" asp-append-version="true" />
+<link href="~/css/slider-product.css" rel="stylesheet" asp-append-version="true" />
+
+
+
+<div class="product-container">
+    <div class="area1">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>藥師優品推薦</span>
+            </div>
+            <div class="recommand-container">
+                @{
+                    {
+                        <div class="product" href="">
+                            @* 輪播圖 *@
+                            <div class="slider-container">
+                                <a href="javascript:;" class="control_prev"><i class="fa-solid fa-angle-left"></i></a>
+                                <a href="javascript:;" class="control_next"><i class="fa-solid fa-angle-right"></i></a>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;"><img src="/upload/images/Rectangle 49.png" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><img src="/upload/images/Rectangle 49.png" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><img src="/upload/images/Rectangle 49.png" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><img src="/upload/images/Rectangle 49.png" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><img src="/upload/images/Rectangle 49.png" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><img src="/upload/images/Rectangle 49.png" /></a>
+                                    </li>
+                                </ul>
+                                <div class="dots_wrapper">
+                                    <div class="dot_navigation slider_active_dot"></div>
+                                    <div class="dot_navigation"></div>
+                                    <div class="dot_navigation"></div>
+                                    <div class="dot_navigation"></div>
+                                    <div class="dot_navigation"></div>
+                                    <div class="dot_navigation"></div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="img-box">
+                                @* <img src="@("/upload/images/" + @product.FileName)" alt="" /> *@
+                                <img src="@("/upload/images/Rectangle 49.png")" alt="" />
+                                <a href="javascript:;">造訪品牌官網</a>
+                            </div>
+                            <div class="info-box">
+                                <div class="product-tag">@tagList[0].Text</div>
+                                <div class="product-title">
+                                    <p>@titleList[0].Text</p>
+                                </div>
+                                <div class="product-intro">
+                                    <p>@introList[0].Text
+                                    </p>
+                                </div>
+                                <div class="more">
+                                    <span class="toggle">﹀ 閱讀更多</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="area2">
+        <div class="content">
+            <div class="up">
+                <div class="column-line orange"></div>
+                <div class="score">
+                    <div>
+                        藥師評分
+                    </div>
+                    <div>
+                        @scoreList[0].Text<p>/5</p>
+                    </div>
+                </div>
+                <div class="column-line orange"></div>
+                <div class="disscussion">
+                    <div>
+                        參與藥師
+                    </div>
+                    <div>
+                        @popList[0].Text<p>/人</p>
+                    </div>
+                </div>
+                <div class="column-line orange"></div>
+            </div>
+            <div class="down">
+                @* 尚未接資料 *@
+                <div class="img-box">
+                    <img src="@("/upload/images/Ellipse 10.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 10.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 10.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <img class="others" src="@("/upload/images/group 100.png")" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="area3">
+        <div class="content">
+            <div class="row-line orange"></div>
+            <div class="product-record-container" onclick="toggleRecord()">
+                <div class="product-record-title">
+                    ﹀ 評分紀錄表
+                </div>
+                <div class="product-record-content">
+                    <div class="column-line grey"></div>
+                    <div class="left">@specList[0].Text</div>
+                    <div class="column-line grey"></div>
+                    <div class="right">@specList[0].FileName</div>
+                    <div class="column-line grey"></div>
+                </div>
+            </div>
+            <div class="row-line orange"></div>
+
+            <div class="product-detail-container" onclick="toggleDetail()">
+                <div class=" product-detail-title">
+                    ﹀ 詳細商品資料
+                </div>
+                <div class="product-detail-content">
+                    <img src="@("/upload/images/group 61.png")" alt="" />
+
+                </div>
+            </div>
+            <div class="row-line orange"></div>
+        </div>
+
+
+
+    </div>
+
+    <div class="area4">
+        <div class="content">
+            <div class="comment-container">
+                <div class="banner-box">
+                    <img src="@("/upload/images/空白banner.png")" alt="" />
+                </div>
+                <div class="comment">
+                    <div class="comment-item">
+                        <div class="img-box">
+                            <img src="@("/upload/images/doc1.png")" alt="" />
+                        </div>
+                        <div class="text-box">
+                            <div class="up">
+                                <div class="name">徐偉捷藥師 建佑藥局 </div>
+                                <div class="stars">
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                </div>
+                            </div>
+                            <span class="number">@scoreList[0].Text/5星</span>
+                            <div class="score">
+                            </div>
+                            <div class="down">
+                                剛開始開封第一包有酒的發酵滋味，入口微酸甜，喜歡酒微醺滋味卻不想醉的人最適合。不會太甜，連續每天喝的感覺越喝越順口，有舒緩疲勞的感受，小巧攜帶方便，拆封無礙。珍珠粉，有助於幫助入睡與養顏美容。
+                                口感：微酸甜清爽便利性：超級方便⭐️⭐️⭐️⭐️⭐️功效感受：每天喝才能累積
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-line grey"></div>
+                    <div class="comment-item">
+                        <div class="img-box">
+                            <img src="@("/upload/images/doc1.png")" alt="" />
+                        </div>
+                        <div class="text-box">
+                            <div class="up">
+                                <div class="name">徐偉捷藥師 建佑藥局 </div>
+                                <div class="stars">
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                    <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                </div>
+                            </div>
+                            <span class="number">@scoreList[0].Text/5星</span>
+                            <div class="score">
+                            </div>
+                            <div class="down">
+                                剛開始開封第一包有酒的發酵滋味，入口微酸甜，喜歡酒微醺滋味卻不想醉的人最適合。不會太甜，連續每天喝的感覺越喝越順口，有舒緩疲勞的感受，小巧攜帶方便，拆封無礙。珍珠粉，有助於幫助入睡與養顏美容。
+                                口感：微酸甜清爽便利性：超級方便⭐️⭐️⭐️⭐️⭐️功效感受：每天喝才能累積
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-line grey"></div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="area5">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>免責聲明</span>
+            </div>
+            <div class="disclaimer">
+                瀏覽及使用本網頁內容者均視為同意及明確認知本協會為「非以營利為目的」之公益性社會團體，非營利事業單位，並無從事商品的生產、製造、銷售或廣告等行為，本網頁之設立及內容係以「專業醫學促進國家預防醫學發展」之討論與意見交流為目的，以上醫友心得分享為醫事相關人員實際體驗後所撰寫之真實個人意見
+                ，商品資訊之來源為商品廠商之公開資訊內容，不代表本協會及網站之立場，亦非本協會及網站之陳述，其真實性及合法性應由各商品廠商負最終且完全之法律責任。
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="area6">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>歡迎加入</span>
+            </div>
+            <div class="item-container">
+
+
+
+                <div class="left-box">
+                    <img src="@("/upload/images/Ellipse 10.png")" alt="" />
+                    <div class="join" id="join"><span>品牌主加入</span></div>
+                </div>
+                <div class="right-box">
+                    <img src="@("/upload/images/Ellipse 9.png")" alt="" />
+                    <div class="join" id="join"><span>藥師加入</span></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/slider-product.js"></script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const moreButton = document.querySelector('.more .toggle');
+        const introText = document.querySelector('.product-intro');
+
+        moreButton.addEventListener('click', function () {
+            // 切換顯示狀態
+            introText.classList.toggle('expanded');
+
+            // 更改按鈕文字
+            if (introText.classList.contains('expanded')) {
+                moreButton.textContent = '︿ 收合';
+            } else {
+                moreButton.textContent = '﹀ 閱讀更多';
+            }
+        });
+    });
+</script>
+
+<script>
+    function adjustImageDisplay() {
+        const downContainer = document.querySelector('.area2 > .content > .down');
+        const imgBox = downContainer.querySelector('.img-box');
+        const images = imgBox.querySelectorAll('img');
+        const othersImage = imgBox.querySelector('.others');
+
+        const downWidth = downContainer.clientWidth; // 获取 .down 元素的宽度
+        let maxImagesToShow = Math.floor(downWidth / 110); // 根据 .down 元素的宽度计算最多可容纳的图片数量，包括间隔
+
+        if (images.length > maxImagesToShow) {
+            // 调整 img-box 的宽度
+            imgBox.style.width = `${maxImagesToShow * 110}px`;
+
+            // 隐藏超过最大显示数量的图片
+            for (let i = maxImagesToShow; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+
+            // 如果有 .others 图片，则显示它
+            if (othersImage) {
+                othersImage.style.display = 'block';
+            }
+        } else {
+            // 如果图片数量未超过最大显示数量，则隐藏 .others 图片
+            if (othersImage) {
+                othersImage.style.display = 'none';
+            }
+        }
+    }
+
+    // 页面加载完成时和窗口大小变化时调用 adjustImageDisplay 函数
+    document.addEventListener('DOMContentLoaded', adjustImageDisplay);
+    window.addEventListener('resize', adjustImageDisplay);
+</script>
+
+
+
+<script>
+    function toggleRecord() {
+        const content = document.querySelector('.product-record-content');
+        const title = document.querySelector('.product-record-title');
+        if (content.style.display === 'none') {
+            content.style.display = 'flex';
+            title.innerHTML = '︿ 評分紀錄表';
+
+        } else {
+            content.style.display = 'none';
+            title.innerHTML = '﹀ 評分紀錄表'
+
+        }
+    }
+</script>
+
+
+
+<script>
+    function toggleDetail() {
+        const content = document.querySelector('.product-detail-content');
+        const title = document.querySelector('.product-detail-title');
+
+        if (content.style.display === 'none') {
+            content.style.display = 'block';
+            title.innerHTML = '︿ 詳細商品資料';
+        } else {
+            content.style.display = 'none';
+            title.innerHTML = '﹀ 詳細商品資料'
+        }
+    }
+</script>
+
+
+
+
+
+@*
+
+<div>@imgList[0]</div>
+<div>@linkList[0].Text</div>
+<div>@tagList[0].Text</div>
+<div>@titleList[0].Text</div>
+<div>@introList[0].Text</div>
+<div>@scoreList[0].Text</div>
+<div>@popList[0].Text</div>
+<div>@specList[0].Text</div>
+<div>@bannerList[0].Text</div>
+<div>@detailList[0].Text</div> *@
+
+@*
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+// 獲取所有產品元素
+const productElements = document.querySelectorAll('.product');
+
+// 遍歷每個產品元素
+productElements.forEach((productElement) => {
+// 獲取當前產品的評分值
+const scoreElement = productElement.querySelector('.number');
+const score = parseFloat(scoreElement.innerText);
+
+// 獲取當前產品的星星容器元素
+const starsContainer = productElement.querySelector('.stars');
+const starImages = starsContainer.querySelectorAll('img');
+
+// 計算全星數量和半星狀態
+const fullStars = Math.floor(score);
+const decimalPart = score - fullStars;
+const hasHalfStar = decimalPart >= 0.1 && decimalPart <= 0.9;
+
+// 設置每顆星星的填充狀態
+for (let i = 0; i < starImages.length; i++) {
+if (i < fullStars) {
+// 顯示全填充的星星
+starImages[i].src = "/upload/images/star-full.svg";
+starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+} else if (i === fullStars && hasHalfStar) {
+// 顯示半填充的星星
+starImages[i].src = "/upload/images/star-half.svg";
+starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+} else {
+// 顯示空心的星星s
+starImages[i].src = "/upload/images/star-empty.svg";
+starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+}
+}
+});
+});
+
+
+</script> *@

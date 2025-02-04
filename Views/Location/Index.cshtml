@@ -1,0 +1,44 @@
+﻿@model heyoushu.Models.Backstage.PharmacyResult ;
+
+@{
+    var PharmacyData = Model.PharmacyList;
+    var RegionData = Model.RegionList;
+    string id = ViewData["id"]!.ToString()!;
+}
+@section HeadContent {
+    <meta name="description" content="荷友舒藥局聯盟：全台健康的首選夥伴在台灣，不論您身處北部、中部還是南部，荷友舒藥局聯盟都能成為您和家人健康的最佳守護者。我們聯盟的合作藥局遍布全台，致力於提供高品質的醫藥服務和專業的健康建議。荷友舒藥局聯盟的服務不僅僅局限於藥品銷售。我們還定期舉辦健康講座和免費健康檢查活動，旨在提升社區的健康意識，促進全民健康。我們深知每位顧客的需求各不相同，因此我們的服務既細緻又周到，確保每位顧客都能獲得量身定制的健康解決方案。">
+}
+
+<link href="~/css/location.css" rel="stylesheet" asp-append-version="true" />
+
+<div class="index-container">
+    <div class="area1">
+        <div class="content">
+            <div class="title">
+                <a href="/Location/" style= "@(id == "0" ? " color: #ffffff; background-color: #e84c2e" : "" )">全部</a>
+                @{
+                    for (int i=0; i < RegionData.Count; i++)
+                    {
+                        var region = RegionData[i];
+                        <a href="@("/Location/" + (i+1))" style="@((i+1).ToString() == id ? "color: #ffffff; background-color: #e84c2e" : "")">@region.Region</a>
+                    }
+                }
+            </div>
+            <div class="store-container">
+                @{
+                    foreach (var Pharmacy in PharmacyData)
+                    {
+                        <div class="store">
+                            <div class="img-box">
+                                <img src="@("/upload/images/" + @Pharmacy.FileName)" alt="" />
+                            </div>
+                            <p style="font-size: 20px; margin-top: 10px">@Pharmacy.PharmacyName</p>
+                            <p style="color: #676767; margin-top: 10px">@Pharmacy.Address</p>
+                            <p style="color: #676767">@Pharmacy.PhoneNumber</p>
+                        </div >
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

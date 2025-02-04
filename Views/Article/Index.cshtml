@@ -1,0 +1,158 @@
+﻿@model heyoushu.Models.Backstage.ArticleResult
+
+@{
+    var ArticleList = Model.ArticleList;
+    var CategoryList = Model.CategoryList;
+    var FeaturedArticle = Model.FeaturedArticle;
+    var PopularArticleList = Model.PopularArticleList;
+}
+@section HeadContent {
+    <meta name="description" content="在健康路上，知識就是力量。荷友舒藥局聯盟不僅致力於提供優質的醫藥服務，還在我們的網站上提供豐富的醫藥知識，成為您信賴的健康資訊來源。不論您需要了解常見病症、用藥指南、保健品選購建議，還是最新的醫療動態，我們的網站都是您的最佳參考平台。荷友舒藥局聯盟擁有專業的藥劑師團隊，定期撰寫和更新各類健康文章，確保資訊的準確性和時效性。我們的文章涵蓋廣泛的主題，包括感冒與流感的預防措施、高血壓的控制方法、糖尿病管理、營養保健品的選擇等等，讓您在家中也能獲得專業的健康指導。除了醫藥知識，荷友舒的網站還提供實用的健康小貼士和季節性保健建議，幫助您應對不同季節的健康挑戰。我們的目標是通過知識分享，提高大家的健康意識，促進全民健康。">
+}
+
+<link href="~/css/article.css" rel="stylesheet" asp-append-version="true" />
+<div class="article-page-container">
+    <nav class="article-nav">
+        <ul>
+            @foreach (var category in CategoryList)
+            {
+                <li><a href="@("/Article/List/" + category.Id)"><img src="@("/upload/images/" + category.FileName)"
+                            alt="">@category.CategoryName</a></li>
+            }
+        </ul>
+    </nav>
+    <div class="area1">
+        <div class="content">
+            <div class="news-container">
+                <div class="left">
+                    <div class="focus-box">
+                        <div class="title">
+                            <div class="cross-box">
+                                <div class="cross-row"></div>
+                                <div class="cross-column"></div>
+                            </div>
+                            <span>焦點文章</span>
+                        </div>
+                        <div class="slider-container">
+                            <a href="javascript:;" class="control_prev"><i class="fa-solid fa-angle-left"></i></a>
+                            <a href="javascript:;" class="control_next"><i class="fa-solid fa-angle-right"></i></a>
+                            <ul>
+                                @{
+                                    foreach (var article in FeaturedArticle)
+                                    {
+                                        <li>
+                                            <a href="@("/Article/Content/" + article.Id)">
+                                                <img src="@("/upload/images/" + @article.FileName)" />
+                                                <p>@article.Title</p>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                            <div class="dots_wrapper">
+                                @{
+                                    for (int i = 0; i < FeaturedArticle.Count(); i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            <div class="dot_navigation slider_active_dot"></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="dot_navigation"></div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="hot-box">
+                        <div class="title">
+                            <div class="cross-box">
+                                <div class="cross-row"></div>
+                                <div class="cross-column"></div>
+                            </div>
+                            <span>熱門文章</span>
+                        </div>
+                        <ul>
+                            @{
+                                for (int i = 0; i < PopularArticleList.Count; i++)
+                                {
+                                    var article = PopularArticleList[i];
+                                    <li>
+                                        <p><img src="upload/images/icon _heart_.png" alt="" /><span>@article.Popularity</span>
+                                        </p>
+                                        <a class="hot-box-text" href="@("/Article/Content/" + article.Id)">@article.Title</a>
+                                    </li>
+                                    if (i != PopularArticleList.Count - 1)
+                                    {
+                                        <li class="line"></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="area2">
+        <div class="content">
+            <div class="article-container">
+                @{
+                    foreach (var category in CategoryList)
+                    {
+                        <div class="item">
+                            <div class="title">
+                                <p>@category.CategoryName</p>
+                            </div>
+                            <div class="article-box">
+
+                                @foreach (var article in ArticleList)
+                                {
+                                    if (article.Category_Id == category.Id)
+                                    {
+                                        <div class="wrap">
+                                            <div class="tag-box">
+                                                @foreach (var tag in article.ArticleTag)
+                                                {
+                                                    <a href="@("/Article/Tag/" + tag)">@("#" + tag)</a>
+                                                }
+                                            </div>
+                                            <a class="article" href="@("/Article/Content/" + article.Id)">
+                                                <div class="img-box">
+                                                    <img src="@("/upload/images/" + @article.FileName)" alt="" />
+                                                </div>
+                                                <p>@article.Title</p>
+                                            </a>
+                                        </div>
+                                    }
+
+                                }
+                            </div>
+                            <div class="more"><a href="@("/Article/List/" + category.Id)">看更多 ›</a></div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/slider.js"></script>
+<script>
+
+    window.addEventListener('scroll', function () {
+        var nav = document.querySelector('.article-page-container > nav');
+        var scrollPosition = window.scrollY;
+
+        if (scrollPosition > 100) {
+            nav.classList.add('nav-top'); // 添加類來改變背景
+            nav.style.top = '0';
+        } else {
+            nav.classList.remove('nav-top'); // 刪除類來恢復原始背景
+            nav.style.top = '100px';
+        }
+    });
+</script>

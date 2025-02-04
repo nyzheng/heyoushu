@@ -1,0 +1,400 @@
+﻿.forum-container {
+    width: 100%;
+}
+
+    .forum-container .icon {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        z-index: 5;
+    }
+
+        .forum-container .icon > a > img {
+            max-width: 60px;
+        }
+
+.forum-container .area1 {
+    width: 100%;
+}
+
+    .forum-container .area1 > .content {
+        width: 100%;
+    }
+
+        .forum-container .area1 > .content > .banner-box {
+            width: 100%;
+            display:flex;
+            position: relative;
+        }
+
+            .forum-container .area1 > .content > .banner-box img {
+                width: 100%;
+            }
+
+        .forum-container .area1 > .content > .mobile-banner-box {
+            display: none;
+        }
+
+.forum-container .area2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f8f8f8; */
+}
+
+    .forum-container .area2 > .content {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 600px);
+        padding: 60px 0px;
+    }
+
+        .forum-container .area2 > .content > .btn-box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 0 0 60px 0;
+        }
+
+            .forum-container .area2 > .content > .btn-box > button {
+                border: #e84c2e solid 1px;
+                color: #e84c2e;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 18px;
+                padding: 15px 25px 15px 25px;
+                background-color: #ffffff;
+                display:flex;
+                position:relative;
+            }
+            .forum-container .area2 > .content > .btn-box > .active {
+                color: #ffffff;
+                background-color: #e84c2e;
+            }
+
+        .forum-container .area2 > .content > .banner-box {
+            width: 100%;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+            .forum-container .area2 > .content > .banner-box > img {
+                width: 100%;
+            }
+
+.forum-container .area3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f8f8f8; */
+}
+
+    .forum-container .area3 > .content {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 600px);
+        padding: 60px 0px;
+    }
+
+        .forum-container .area3 > .content > .question {
+            width: 100%;
+            border: solid 0.5px #c7c7c7;
+            border-radius: 20px;
+            /* position: relative; */
+            margin: 0 0 50px 0;
+            font-weight: 700;
+            display:flex;
+            flex-direction:column;
+            position:relative;
+        }
+
+        .forum-container .area3 > .content > .question.unchecked {
+            display: none;
+        }
+
+            .forum-container .area3 > .content > .question > .box-header {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                background-color: #e84c2e;
+                border-radius: 20px 20px 0 0;
+                color: #ffffff;
+                padding: 20px;
+                gap: 20px;
+                position: relative;
+            }
+
+                .forum-container .area3 > .content > .question > .box-header > .question-icon {
+                }
+
+                .forum-container .area3 > .content > .question > .box-header > .text {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+
+                .forum-container .area3 > .content > .question > .box-header > button {
+                    background-color: transparent;
+                    border: none;
+                    color: #ffffff;
+                    font-weight: bold;
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+
+.custom-plus-button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    color: #007bff;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    position: relative;
+}
+
+    .custom-plus-button:hover {
+        color: #0056b3;
+    }
+
+    .custom-plus-button::after {
+        content: '+';
+        position: absolute;
+        top: 10px;
+        left: -20px;
+        font-size: 1.5em;
+    }
+
+    .custom-plus-button.minus::after {
+        content: '-';
+        font-size: 1.5em;
+    }
+
+.forum-container .area3 > .content > .question > .answer-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+    .forum-container .area3 > .content > .question > .answer-box > .answer-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+        position:relative;
+    }
+
+        .forum-container .area3 > .content > .question > .answer-box > .answer-content > .answer-detail {
+            width: calc(100% - 100px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+            .forum-container .area3 > .content > .question > .answer-box > .answer-content > .answer-detail > .answer-detail-box {
+                display: flex;
+                align-items: center;
+            }
+
+                .forum-container .area3 > .content > .question > .answer-box > .answer-content > .answer-detail > .answer-detail-box > .img-box > img {
+                    max-height: 50px;
+                }
+
+            .forum-container .area3 > .content > .question > .answer-box > .answer-content > .answer-detail::after {
+                content: ''; /* 设置伪元素的内容为空 */
+                width: 100%; /* 设置宽度为父元素的宽度 */
+                height: 2px; /* 设置边线的高度 */
+                background-color: #ccc; /* 设置边线的颜色 */
+            }
+
+    .forum-container .area3 > .content > .question > .answer-box > .reply-title {
+        text-align: center;
+        color: #e84c2e;
+        font-size: 24px;
+        margin: 20px;
+    }
+
+    .forum-container .area3 > .content > .question > .answer-box > .reply-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+
+        .forum-container .area3 > .content > .question > .answer-box > .reply-content > form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail {
+            width: calc(100% - 100px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 40px 0;
+        }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail .reply-input {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+                .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail .reply-input div {
+                    display: flex;
+                }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form {
+                width: 100%;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                flex-direction: row;
+                gap: 20px;
+            }
+
+                .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form label {
+                    width: 60px;
+                }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form input,
+            textarea {
+                width: 100%;
+                border-radius: 20px;
+                background-color: #f8f8f8;
+            }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form input {
+                height: 30px;
+                padding: 0 10px;
+            }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form textarea {
+                height: 100px;
+                padding: 10px;
+            }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail button {
+                border: none;
+                background-color: transparent;
+            }
+
+                .forum-container .area3 > .content > .question > .answer-box > .reply-content > .reply-detail button img {
+                    width: 50px;
+                }
+
+.forum-container .area4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .forum-container .area4 > .content {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 600px);
+        border: solid 1px #c7c7c7;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+    }
+
+        .forum-container .area4 > .content > .request-title {
+            text-align: center;
+            color: #e84c2e;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .forum-container .area4 > .content > .request-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0 0 0;
+        }
+
+            .forum-container .area4 > .content > .request-content > form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+                .forum-container .area4 > .content > .request-content > form input {
+                    width: 100%;
+                    border-radius: 20px;
+                    background-color: #f8f8f8;
+                    height: 30px;
+                    padding: 0 10px;
+                }
+
+                .forum-container .area4 > .content > .request-content > form textarea {
+                    height: 100px;
+                    padding: 10px;
+                }
+
+                .forum-container .area4 > .content > .request-content > form > div {
+                    display: flex;
+                }
+
+                .forum-container .area4 > .content > .request-content > form label {
+                    width: 60px;
+                    font-weight: 700;
+                }
+
+                .forum-container .area4 > .content > .request-content > form > .submit-box {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                    .forum-container .area4 > .content > .request-content > form > .submit-box > button {
+                        width: 100px;
+                        border: none;
+                        border-radius: 20px;
+                        padding: 10px 0;
+                        background-color: #e84c2e;
+                        color: #ffffff;
+                        font-weight: 700;
+                        font-size: 16px;
+                    }

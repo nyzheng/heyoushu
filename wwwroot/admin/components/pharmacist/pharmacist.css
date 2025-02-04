@@ -1,0 +1,409 @@
+﻿body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei';
+    font-size: 16px;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+@media screen and (min-width: 768px) {
+    .pharmacist-container {
+        width: 100%;
+    }
+
+        .pharmacist-container > .area1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .pharmacist-container > .area1 > .content {
+                width: calc(100% - 40px);
+                max-width: 1280px;
+                padding: 0 60px;
+            }
+
+                .pharmacist-container > .area1 > .content > .title {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 40px;
+                    margin: 40px 0;
+                }
+
+                    .pharmacist-container > .area1 > .content > .title > a {
+                        font-size: 26px;
+                        font-weight: 700;
+                        color: #e84c2e;
+                        border: solid 1px #e84c2e;
+                        border-radius: 30px;
+                        padding: 5px 30px;
+                    }
+                        .pharmacist-container > .area1 > .content > .title > a.active {
+                            font-size: 26px;
+                            font-weight: 700;
+                            background-color: #e84c2e;
+                            color: #ffffff;
+                            border: solid 1px #e84c2e;
+                            border-radius: 30px;
+                            padding: 5px 30px;
+                        }
+
+                .pharmacist-container > .area1 > .content > .store-container > .item {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 40px;
+                }
+
+                .pharmacist-container > .area1 > .content > .store-container > .store-box {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 60px;
+                    margin: 0 0 40px 0;
+                }
+
+                    .pharmacist-container > .area1 > .content > .store-container > .store-box > .store {
+                        width: calc((100% - 120px) / 3);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                    }
+
+                        .pharmacist-container > .area1 > .content > .store-container > .store-box > .store > .img-box {
+                            width: 100%;
+                            height: 210px;
+                        }
+
+                        .pharmacist-container > .area1 > .content > .store-container > .store-box > .store > p {
+                            font-weight: 700;
+                        }
+
+                        .pharmacist-container > .area1 > .content > .store-container > .store-box > .store > .img-box > img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+        .pharmacist-container > .area2 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+            .pharmacist-container > .area2 > .content {
+                max-width: 1280px;
+                width: calc(100% - 40px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 60px;
+            }
+
+                .pharmacist-container > .area2 > .content > .person-box {
+                    width:100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 60px;
+                }
+
+                    .pharmacist-container > .area2 > .content > .person-box > .item {
+                        width: calc((100% - 180px) / 4);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        position: relative;
+                    }
+
+                        .pharmacist-container > .area2 > .content > .person-box > .item > a > img {
+                            width: 100%;
+                            margin: 0 0 10px 0;
+                        }
+
+                        .pharmacist-container > .area2 > .content > .person-box > .item > a {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                            .pharmacist-container > .area2 > .content > .person-box > .item > a > p {
+                                font-size: 20px;
+                                font-weight: 700;
+                            }
+
+                                .pharmacist-container > .area2 > .content > .person-box > .item > a > p > span {
+                                    font-size: 20px;
+                                    font-weight: 700;
+                                }
+
+
+
+
+
+    .pharmacist-profile-container {
+        width: 100%;
+    }
+
+    .pharmacist-profile-container > .area1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0;
+    }
+
+        .pharmacist-profile-container > .area1 > .content {
+            width: calc(100% - 40px);
+            max-width: 1280px;
+        }
+
+            .pharmacist-profile-container > .area1 > .content > .doctor-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+                .pharmacist-profile-container > .area1 > .content > .doctor-container > .title {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin: 0 0 20px 0;
+                }
+
+                    .pharmacist-profile-container > .area1 > .content > .doctor-container > .title > .cross-box {
+                        position: relative;
+                        width: 25px;
+                        height: 25px;
+                    }
+
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .title > .cross-box > .cross-row {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 100%;
+                            height: 25%;
+                            background-color: #e84c2e;
+                        }
+
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .title > .cross-box > .cross-column {
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 25%;
+                            height: 100%;
+                            background-color: #e84c2e;
+                        }
+
+                    .pharmacist-profile-container > .area1 > .content > .doctor-container > .title > span {
+                        color: #e84c2e;
+                        font-size: 32px;
+                        font-weight: 700;
+                    }
+
+                .pharmacist-profile-container > .area1 > .content > .doctor-container > .information {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start; /* 修改为 flex-start */
+                    gap: 100px;
+                    padding: 20px 0 0 50px;
+                    position: relative;
+                }
+
+                    .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-pic {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start; /* 修改为 flex-start */
+                        position:relative;
+                    }
+
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-pic > div {
+                            height: 100%;
+                        }
+
+                    .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .icon {
+                        width: 60px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 20px;
+                        position: absolute;
+                        top: 0;
+                        left: 50px;
+                    }
+
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .icon > a > img {
+                            width: 100%;
+                        }
+
+                    .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-pic > img {
+                        max-width: 400px;
+                    }
+
+                    .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-detail {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        font-weight: 700;
+                        color: #676767;
+                        /* padding: 20px; */
+                        gap: 20px;
+                    }
+
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-detail > div > p > span {
+                            display: flex;
+                            position: relative;
+                        }
+
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-detail > ul {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            gap: 10px;
+                        }
+                        .pharmacist-profile-container > .area1 > .content > .doctor-container > .information > .doctor-detail > ul >li{
+                            width:100%;
+                            display: flex;
+                            position: relative;
+                        }
+    /* ----- */
+    .pharmacist-profile-container > .area2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 80px 0;
+    }
+
+        .pharmacist-profile-container > .area2 > .content {
+            width: calc(100% - 40px);
+            max-width: 1280px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+            .pharmacist-profile-container > .area2 > .content > .row-line {
+                width: 100%;
+                height: 1px;
+                background-color: #d9d9d9;
+            }
+    /* ----- */
+    .pharmacist-profile-container > .area3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0;
+    }
+
+        .pharmacist-profile-container > .area3 > .content {
+            width: calc(100% - 40px);
+            max-width: 1280px;
+        }
+
+            .pharmacist-profile-container > .area3 > .content > .text1 {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 40px;
+                margin-bottom: 40px;
+                position: relative;
+            }
+
+                .pharmacist-profile-container > .area3 > .content > .text1 > .img-box {
+                    width: 100%;
+                }
+
+                    .pharmacist-profile-container > .area3 > .content > .text1 > .img-box > img {
+                        width: 100%;
+                    }
+
+                .pharmacist-profile-container > .area3 > .content > .text1 > p {
+                    font-weight: 700;
+                    line-height: 1.5;
+                    white-space: 
+                        
+                        
+                        
+                        ;
+                }
+
+            .pharmacist-profile-container > .area3 > .content > .text2 {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 40px;
+                margin-bottom: 40px;
+                position: relative;
+            }
+
+                .pharmacist-profile-container > .area3 > .content > .text2 > .img-box {
+                    width: 100%; /* 设置容器宽度 */
+                    flex: 1;
+                }
+
+                    .pharmacist-profile-container > .area3 > .content > .text2 > .img-box > img {
+                        width: 100%;
+                        object-fit: cover; /* 保持图片比例并填充整个容器，可能会裁切部分图片 */
+                    }
+
+                .pharmacist-profile-container > .area3 > .content > .text2 > p {
+                    font-weight: 700;
+                    line-height: 1.5;
+                    flex: 1;
+                    white-space: pre-line;
+                }
+
+            .pharmacist-profile-container > .area3 > .content > .text3 {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 40px;
+                position: relative;
+            }
+
+                .pharmacist-profile-container > .area3 > .content > .text3 > p {
+                    font-weight: 700;
+                    line-height: 1.5;
+                    white-space: pre-line;
+                }
+}

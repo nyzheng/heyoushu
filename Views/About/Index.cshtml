@@ -1,0 +1,57 @@
+﻿@model heyoushu.Models.Backstage.AboutResult
+
+@{
+    var AboutData = Model.AboutData;
+    var AboutCategory = Model.AboutCategory;
+    string id = ViewData["id"]!.ToString()!;
+}
+@section HeadContent {
+    <meta name="description" content="荷友舒藥局聯盟：您的健康守護者。在現代快節奏的生活中，健康問題成為每個人都關心的焦點。荷友舒藥局聯盟致力於提供優質的醫藥服務，成為您和您家人健康的最佳守護者。無論您需要日常藥品、專業健康建議，還是個性化的醫療服務，我們的藥局都能滿足您的需求。作為一個全方位的藥局聯盟，荷友舒的核心價值是「以人為本」。我們的藥劑師團隊擁有豐富的專業知識，隨時為您提供準確的用藥指導和健康建議。我們深知每位顧客的需求各不相同，因此我們的服務既細緻又周到，確保每位顧客都能獲得量身定制的健康解決方案。">
+}
+
+<link href="~/css/about.css" rel="stylesheet" asp-append-version="true" />
+<div class="about-container">
+    <div class="area1">
+        <div class="content">
+            <div class="news-container">
+                <div class="left">
+                    <div class="focus-box">
+                        <ul>
+                            @{
+                                foreach (var item in AboutCategory)
+                                {
+                                    <li>
+                                        <a class="@(id == item.Id.ToString() ? "orange" : "")"  href="@("/About/" + item.Id)">@item.CategoryName</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="hot-box">
+                        @{
+                            foreach (var item in AboutData)
+                            {
+                                if (item.TypeSetting == "h4")
+                                {
+                                    <h4>@item.Text</h4>
+                                }
+                                if (item.TypeSetting == "p")
+                                {
+                                    <div class="text">
+                                        <p>@item.Text</p>
+                                    </div>
+                                }
+                                if (item.TypeSetting == "img")
+                                {
+                                    <div class="img-box"><img src="@("/upload/images/" + item.FileName)" alt="" /></div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

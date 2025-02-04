@@ -1,0 +1,49 @@
+﻿.pages-scale {
+    font-family: "NotoSansTCBold", "Microsoft JhengHei";
+    transform: scale(0.8);
+    transform-origin: top center;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    left: 0px;
+}
+
+    .mask:hover {
+        width: 100%;
+        height: 100%;
+        min-height: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0px 0px 9px #000000;
+    }
+
+    .mask > button {
+        width: 70px;
+        height: 50px;
+        border: none;
+        outline: none;
+        color: #000000;
+        display: none;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .mask:hover > button {
+        display: block;
+    }
+
+button:hover {
+    -webkit-filter: brightness(105%); /* Safari */
+    filter: brightness(105%);
+    background-color: #e84c2e;
+    color: #ffffff;
+}

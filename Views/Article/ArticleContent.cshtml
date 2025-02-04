@@ -1,0 +1,105 @@
+﻿@model heyoushu.Models.Backstage.ArticleContentResult
+
+@{
+    var Article = Model.Article;
+    var ArticleContent = Model.ArticleContent;
+    var SameCategoryArticle = Model.SameCategoryArticle;
+    var PopularArticleList = Model.PopularArticleList;
+    var HeadContent = Article.HeadContent;
+}
+<link href="~/css/article_content.css" rel="stylesheet" asp-append-version="true" />
+@section HeadContent {
+    @Html.Raw(HeadContent)
+}
+
+<div class="article-content-container">
+    <div class="area1">
+        <div class="content">
+            <div class="news-container">
+                <div class="left">
+                    <div class="focus-box">
+                        <h1>@Article.Title</h1> 
+                        <div class="focus-img-box">
+                            <img src="@("/upload/images/" + Article.FileName)" alt="" />
+                        </div>
+                        <div class="focus-text">
+                            @{
+                                foreach( var content in ArticleContent)
+                                {
+                                    if (content.TypeSetting == "p")
+                                    {
+                                        <p>@content.Text</p>
+                                    }
+                                    if (content.TypeSetting == "h4")
+                                    {
+                                        <h4>@content.Text</h4>
+                                    }
+                                    if (content.TypeSetting == "h5")
+                                    {
+                                        <h5>@content.Text</h5>
+                                    }
+                                    if (content.TypeSetting == "img")
+                                    {
+                                        <div class="focus-img-box">
+                                            <img src="@("/upload/images/" + content.FileName)" alt="" />
+                                        </div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="right-content">
+                        <div class="hot-box">
+                            <div class="title">
+                                <div class="cross-box">
+                                    <div class="cross-row"></div>
+                                    <div class="cross-column"></div>
+                                </div>
+                                <span>熱門文章</span>
+                            </div>
+                            <ul>
+                                @{
+                                    for (int i = 0; i < PopularArticleList.Count; i++)
+                                    {
+                                        var article = PopularArticleList[i];
+                                        <li>
+                                            <p><img src="/upload/images/icon _heart_.png" alt="" /><span>@article.Popularity</span></p>
+                                            <a class="hot-box-text" href="@("/Article/Content/" + article.Id)">@article.Title</a>
+                                        </li>
+                                        if (i != PopularArticleList.Count - 1)
+                                        {
+                                            <li class="line"></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <div class="hot-box">
+                            <div class="title">
+                                <div class="cross-box">
+                                    <div class="cross-row"></div>
+                                    <div class="cross-column"></div>
+                                </div>
+                                <span>同類文章</span>
+                            </div>
+                            @{
+                                foreach(var article in SameCategoryArticle)
+                                {
+                                    <a href="@("/Article/Content/" + article.Id)" class="item">
+                                        <div class="img-box"><img src="@("/upload/images/" + article.FileName)" alt="" /></div>
+                                        <p>@article.Title</p>
+                                    </a>
+                                }
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

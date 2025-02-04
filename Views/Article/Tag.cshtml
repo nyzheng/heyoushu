@@ -1,0 +1,61 @@
+﻿@model heyoushu.Models.Backstage.ArticleResult
+
+@{
+    var ArticleList = Model.ArticleList;
+    var CategoryList = Model.CategoryList;
+    uint id = Convert.ToUInt32(ViewData["CategoryId"]);
+}
+<link href="~/css/article_detail.css" rel="stylesheet" asp-append-version="true" />
+<div class="article-detail-page-container">
+    <nav class="article-nav">
+        <ul>
+            @foreach (var category in CategoryList)
+            {
+                <li><a href="@("/Article/List/" + category.Id)"><img src="@("/upload/images/" + category.FileName)" alt="">@category.CategoryName</a></li>
+            }
+        </ul>
+    </nav>
+    <div class="area1">
+        <div class="content">
+            <div class="article-container">
+                <div class="title"><p>@("#" + ViewData["TagName"])</p></div>
+                <div class="article-box" id="article-box">
+                    @{
+                        foreach (var article in ArticleList)
+                        {
+                            <div class="wrap">
+                                <div class="tag-box">
+                                    @foreach (var tag in article.ArticleTag)
+                                    {
+                                        <a href="@("/Article/Tag/" + tag)">@("#" + tag)</a>
+                                    }
+                                </div>
+                                <a class="article" href="@("/Article/Content/" + article.Id)">
+                                    <div class="img-box">
+                                        <img src="@("/upload/images/" + @article.FileName)" alt="" />
+                                    </div>
+                                    <p>@article.Title</p>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('scroll', function () {
+        var nav = document.querySelector('.article-detail-page-container > nav');
+        var scrollPosition = window.scrollY;
+
+        if (scrollPosition > 100) {
+            nav.classList.add('nav-top'); // 添加類來改變背景
+            nav.style.top = '0';
+        } else {
+            nav.classList.remove('nav-top'); // 刪除類來恢復原始背景
+            nav.style.top = '100px';
+        }
+    });
+</script>

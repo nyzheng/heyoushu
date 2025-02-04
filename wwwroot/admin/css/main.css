@@ -1,0 +1,25 @@
+﻿
+[v-cloak] {
+    display: none;
+}
+
+:root {
+    --page-max-width: 1280px;
+    --page-width: calc(100% - 40px);
+}
+body {
+    width: 100%;
+    height: 100vh;
+    color: #000000;
+    font-family: "Microsoft JhengHei";
+    font-size: 16px;
+}
+
+#app_table {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

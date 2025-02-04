@@ -1,0 +1,75 @@
+﻿@model heyoushu.Models.Backstage.FooterResult ;
+@{
+    var Text = Model.Text;
+}
+<link href="~/css/footer.css" rel="stylesheet" asp-append-version="true" />
+
+<footer>
+    <nav>
+        <div class="logo">
+            <img src="~/upload/images/首頁規劃-11 1.png" alt="" />
+        </div>
+        <ul class="menu">
+            <li>
+                <a href="/About">
+                    <div class="img-box">
+                        <div class="line"></div>
+                        <img src="/upload/images/Rectangle 18.png" alt="" />
+                    </div>
+                    <span>關於荷友舒</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Location">
+                    <div class="img-box">
+                        <div class="line"></div>
+                        <img src="/upload/images/Rectangle 18.png" alt="" />
+                    </div>
+                    <span>荷友舒藥局位置</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/Article">
+                    <div class="img-box">
+                        <div class="line"></div>
+                        <img src="/upload/images/Rectangle 18.png" alt="" />
+                    </div>
+                    <span>荷友舒聊百病</span>
+                </a>
+            </li>
+            <li>
+                <a href="/News">
+                    <div class="img-box">
+                        <div class="line"></div>
+                        <img src="/upload/images/Rectangle 18.png" alt="" />
+                    </div>
+                    <span>最新消息</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Product">
+                    <div class="img-box">
+                        <div class="line"></div>
+                        <img src="/upload/images/Rectangle 18.png" alt="" />
+                    </div>
+                    <span>藥師優品推薦</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Forum">
+                    <div class="img-box">
+                        <div class="line"></div>
+                        <img src="/upload/images/Rectangle 18.png" alt="" />
+                    </div>
+                    <span>藥品即時問</span>
+                </a>
+            </li>
+        </ul>
+        <div class="supplier-menu">
+            <p>@Text</p>
+
+        </div>
+    </nav>
+</footer>
+        

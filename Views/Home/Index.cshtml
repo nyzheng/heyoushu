@@ -1,0 +1,229 @@
+﻿@model heyoushu.Models.HomeResult
+
+
+@{
+    var PharmacistData = Model.PharmacistData;
+    var ArticleData = Model.ArticleData;
+    var CategoryData = Model.CategoryData;
+    var BannerData = Model.BannerData;
+    var TiktokData = Model.TiktokData;
+    var PageData = Model.PageData;
+}
+
+<link href="~/css/index.css" rel="stylesheet" asp-append-version="true" />
+<link href="~/css/banner-slider.css" rel="stylesheet" asp-append-version="true" />
+
+<div class="index-container">
+    <div class="icon">
+        <a href="https://lin.ee/RgBPIee"><img src="~/upload/images/line.png" alt="" /></a>
+        <a href="https://www.facebook.com/people/%E8%8D%B7%E5%8F%8B%E8%88%92%E9%86%AB%E8%97%A5%E8%81%AF%E7%9B%9F/61552790938978/"><img src="~/upload/images/facebook.png" alt="" /></a>
+    </div>
+
+    <div class="area1">
+        <div class="content">
+            @* 輪播圖 *@
+            <div class="slider-container">
+                <a href="javascript:;" class="control_prev"><i class="fa-solid fa-angle-left"></i></a>
+                <a href="javascript:;" class="control_next"><i class="fa-solid fa-angle-right"></i></a>
+                <ul>
+                    @{
+                        foreach (var banner in BannerData)
+                        {
+                            if (banner.Device == "desktop")
+                            {
+                                <li>
+                                    <div class="banner-box">
+                                        <img src="@("/upload/images/" + banner.Img)" alt="" />
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+                <div class="dots_wrapper">
+                    @{
+                        int firstDot = 0;
+                        for (int i = 0; i < BannerData.Count(); i++)
+                        {
+                            if (firstDot == 0)
+                            {
+                                <div class="dot_navigation slider_active_dot"></div>
+                                firstDot=1;
+                            }
+                            else
+                            {
+                                if (BannerData[i].Device == "desktop")
+                                {
+                                    <div class="dot_navigation"></div>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="mobile-slider-container">
+                <a href="javascript:;" class="control_prev"><i class="fa-solid fa-angle-left"></i></a>
+                <a href="javascript:;" class="control_next"><i class="fa-solid fa-angle-right"></i></a>
+                <ul>
+                    @{
+                        foreach (var banner in BannerData)
+                        {
+                            if (banner.Device == "mobile")
+                            {
+                                <li>
+                                    <div class="mobile-banner-box">
+                                        <img src="@("/upload/images/" + banner.Img)" alt="" />
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+                <div class="mobile-dots_wrapper">
+                    @{
+                        int mobileFirstDot = 0;
+                        for (int i = 0; i < BannerData.Count(); i++)
+                        {
+                            if (BannerData[i].Device == "mobile")
+                            {
+                                if (mobileFirstDot == 0)
+                                {
+                                    <div class="mobile-dot_navigation mobile-slider_active_dot"></div>
+                                    mobileFirstDot = 1;
+                                }
+                                else
+                                {
+                                    <div class="mobile-dot_navigation"></div>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="area2">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>影音專區</span>
+            </div>
+            <div class="video-container">
+                @{
+                    int index = 0;
+                    foreach (var item in TiktokData)
+                    {
+                            <div class="item" data-index="@index">
+                                <a href="@item.Link">
+                                    <img src="@("/upload/images/" + item.FileName)" alt="" />
+                                </a>
+                            </div>
+                        index++;
+                    }
+                }
+            </div>
+
+            <div class="dots-container"></div>
+        </div>
+    </div>
+    
+
+    <div class="area3">
+        <div class="content">
+            <a href="pharmacist_north.html" class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>我們的友舒</span>
+            </a>
+
+            <div class="person-box">
+                @{
+                    foreach (var pharmacist in PharmacistData)
+                    {
+                            <div class="item">
+                                <a href=@("/Pharmacist/" + pharmacist.Id.ToString())>
+                                    <img src=@("/upload/images/" + pharmacist.FileName)  alt="" />
+                                    <p>@pharmacist.Name <span style="color: #e84c2e; font-size: 16px">@pharmacist.Position</span></p>
+                                    <p><span style="color: #e84c2e">@pharmacist.Pharmacy</span></p>
+                                </a>
+                            </div>
+
+                    }
+                }
+                   
+            </div>
+            <div class="person-box-scrollbar"></div>
+        </div>
+    </div>
+    <div class="area4">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>荷友舒聊百病</span>
+            </div>
+            <div class="article-container">
+                @{
+                    foreach(var category in CategoryData)
+                    {
+                            <div class="item">
+                                <div class="title"><p>@category.CategoryName</p></div>
+                                <div class="article-box">
+                                    @{
+                                    foreach(var article in ArticleData)
+                                    {
+                                        if (article.Category_Id == category.Id)
+                                        {
+                                            <div class="wrap">
+                                                <div class="tag-box">
+                                                    @foreach (var tag in article.ArticleTag)
+                                                    {
+                                                        <a href="@("/Article/Tag/" + tag)">@("#" + tag)</a>
+                                                    }
+                                                </div>
+                                                <a class="article" href="@("/Article/Content/" + article.Id)">
+                                                    <div class="img-box">
+                                                        <img src="@("/upload/images/" + @article.FileName)" alt="" />
+                                                    </div>
+                                                    <p>@article.Title</p>
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                    }
+                                </div>
+                            </div>
+                    }
+                }
+                
+            </div>
+        </div>
+    </div>
+    <div class="area5">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>荷友舒位置</span>
+            </div>
+            <a href="/Location/">
+                <div class="map-box">
+                    <img src="@("/upload/images/" + PageData[1].FileName)" alt="" />
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/index.js" asp-append-version="true"></script>
+<script src="/js/banner-slider.js"></script>
+

@@ -1,0 +1,125 @@
+﻿@model heyoushu.Models.Backstage.ArticleResult
+
+@{
+    var ArticleList = Model.ArticleList;
+    var CategoryList = Model.CategoryList;
+    uint id = Convert.ToUInt32(ViewData["CategoryId"]);
+}
+<link href="~/css/article_detail.css" rel="stylesheet" asp-append-version="true" />
+<div class="article-detail-page-container">
+    <nav class="article-nav">
+        <ul>
+            @foreach (var category in CategoryList)
+            {
+                <li><a href="@("/Article/List/" + category.Id)"><img src="@("/upload/images/" + category.FileName)" alt="">@category.CategoryName</a></li>
+            }
+        </ul>
+    </nav>
+    <div class="area1">
+        <div class="content">
+            <div class="article-container">
+                <div class="title"><p>@ViewData["CategoryName"]</p></div>
+                <div class="article-box" id="article-box">
+                    @{
+                        foreach(var article in ArticleList)
+                        {
+                            <div class="wrap">
+                                <div class="tag-box">
+                                    @foreach (var tag in article.ArticleTag)
+                                    {
+                                        <a href="@("/Article/Tag/" + tag)">@("#" + tag)</a>
+                                    }
+                                </div>
+                                <a class="article" href="@("/Article/Content/" + article.Id)">
+                                    <div class="img-box">
+                                        <img src="@("/upload/images/" + @article.FileName)" alt="" />
+                                    </div>
+                                    <p>@article.Title</p>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="more" id="more"><span>看更多 +</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('scroll', function () {
+        var nav = document.querySelector('.article-detail-page-container > nav');
+        var scrollPosition = window.scrollY;
+
+        if (scrollPosition > 100) {
+            nav.classList.add('nav-top'); // 添加類來改變背景
+            nav.style.top = '0';
+        } else {
+            nav.classList.remove('nav-top'); // 刪除類來恢復原始背景
+            nav.style.top = '100px';
+        }
+    });
+
+    let page = 1;
+    let id = @ViewData["CategoryId"];
+    const moreBtn=document.getElementById("more")
+    moreBtn.addEventListener('click', () => {
+        fetch(`/api/Article/Get_ArticleList/${id}/${page}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                data.Data.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.classList.add('wrap');
+
+                    // Tag Box
+                    const tagBox = document.createElement('div');
+                    tagBox.classList.add('tag-box');
+                    article.ArticleTag.forEach(tag => {
+                        const tagLink = document.createElement('a');
+                        tagLink.href = `/Article/Tag/${tag}`;
+                        tagLink.textContent = `#${tag}`;
+                        tagBox.appendChild(tagLink);
+                    });
+
+                    // Article Link
+                    const articleLink = document.createElement('a');
+                    articleLink.classList.add('article');
+                    articleLink.href = `/Article/Content/${article.Id}`;
+
+                    // Image Box
+                    const imgBox = document.createElement('div');
+                    imgBox.classList.add('img-box');
+                    const img = document.createElement('img');
+                    img.src = `/upload/images/${article.FileName}`;
+                    img.alt = '';
+                    imgBox.appendChild(img);
+
+                    // Title
+                    const titleElement = document.createElement('p');
+                    titleElement.textContent = article.Title;
+
+                    // Assemble
+                    articleLink.appendChild(imgBox);
+                    articleLink.appendChild(titleElement);
+
+                    // Add Tag Box and Article Link to Article Element
+                    articleElement.appendChild(tagBox);
+                    articleElement.appendChild(articleLink);
+
+                    // Append Article Element to Article Box
+                    const articleBox = document.getElementById("article-box");
+                    articleBox.appendChild(articleElement);
+                });
+                page++;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>

@@ -1,0 +1,228 @@
+﻿@model heyoushu.Models.ProductResult
+@{
+    var data = Model;
+    var PageDataList = Model.PageDataList;
+    var ProductList = Model.ProductList;
+}
+<link href="~/css/product.css" rel="stylesheet" asp-append-version="true" />
+
+
+<div class="product-container">
+    <div class="area0">
+        <div class="content">
+            <div class="banner-box"><img src="@("/upload/images/" + @PageDataList[2].FileName)" /></div>
+            <div class="mobile-banner-box"><img src="@("/upload/images/" + @PageDataList[3].FileName)" /></div>
+
+        </div>
+    </div>
+    <div class="area1">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>藥師優品推薦</span>
+            </div>
+            <div class="recommand-container">
+                @{
+                    foreach (var product in ProductList)
+                    {
+                            <div class="product" href="@("/Product/Content/" + product.Id)">
+                                <div class="product-tag">@product.Tag</div>
+                                <div class="img-box">
+                                    <img src="@("/upload/images/" + @product.FileName)" alt="" /> 
+                                </div>
+                                <div class="info-box">
+                                    <div class="score"> <img src="@("/upload/images/star-empty.svg")" alt="" />
+                                        評分 <span class="number">@product.Score</span> 星
+                                        <div class="stars">
+                                            <img src="@("/upload/images/star 1.svg")" alt="" />
+                                            <img src="@("/upload/images/star 1.svg")" alt="" />
+                                            <img src="@("/upload/images/star 1.svg")" alt="" />
+                                            <img src="@("/upload/images/star 1.svg")" alt="" />
+                                            <img src="@("/upload/images/star 1.svg")" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="disscussion"><img src="@("/upload/images/Vector2.png")" alt="" /> <span
+                                            class="number">@product.Popularity</span>
+                                        位民眾參與討論</div>
+                                    <p>@product.Title</p>
+                                    <a href="@("/Product/Content/" + product.Id)">瀏覽內容</a>
+                                </div>
+                            </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="more" id="more"><span>瀏覽更多商品</span></div>
+    </div>
+
+
+
+    <div class="area2">
+        <div class="content">
+            <div class="title">
+                <div class="cross-box">
+                    <div class="cross-row"></div>
+                    <div class="cross-column"></div>
+                </div>
+                <span>@PageDataList[6].Text</span>
+            </div>
+            <div class="item-container">
+                <div class="left-box">
+                    <img src="@("/upload/images/" + @PageDataList[0].FileName)" alt="" />
+                    <div class="join" id="join"><a href="@PageDataList[0].Link">@PageDataList[0].Text</a></div>
+                </div>
+                <div class="right-box">
+                    <img src="@("/upload/images/" + @PageDataList[1].FileName)" alt="" />
+                    <div class="join" id="join"><a href="@PageDataList[1].Link">@PageDataList[1].Text</a></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    const showStar = () => {
+        // 獲取所有產品元素
+        const productElements = document.querySelectorAll('.product');
+
+        // 遍歷每個產品元素
+        productElements.forEach((productElement) => {
+            // 獲取當前產品的評分值
+            const scoreElement = productElement.querySelector('.number');
+            const score = parseFloat(scoreElement.innerText);
+
+            // 獲取當前產品的星星容器元素
+            const starsContainer = productElement.querySelector('.stars');
+            const starImages = starsContainer.querySelectorAll('img');
+
+            // 計算全星數量和半星狀態
+            const fullStars = Math.floor(score);
+            const decimalPart = score - fullStars;
+            const hasHalfStar = decimalPart >= 0.1 && decimalPart <= 0.9;
+
+            // 設置每顆星星的填充狀態
+            for (let i = 0; i < starImages.length; i++) {
+                if (i < fullStars) {
+                    // 顯示全填充的星星
+                    starImages[i].src = "/upload/images/star-full.svg";
+                    starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+                } else if (i === fullStars && hasHalfStar) {
+                    // 顯示半填充的星星
+                    starImages[i].src = "/upload/images/star-half.svg";
+                    starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+                } else {
+                    // 顯示空心的星星s
+                    starImages[i].src = "/upload/images/star-empty.svg";
+                    starImages[i].style.transform = "scaleX(1)"; // 默認不翻轉
+                }
+            }
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        showStar();
+    });
+
+
+</script>
+
+<script>
+    let page = 1;
+    const moreBtn = document.getElementById("more")
+    const recommandContainer = document.querySelector(".recommand-container");
+    moreBtn.addEventListener('click', () => {
+        fetch(`/api/Product/Get_ProductList/${page}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                data.Data.forEach(product => {
+                    const productElement = document.createElement('div');
+                    productElement.classList.add('product');
+                    productElement.setAttribute('href', `/Product/Content/${product.Id}`);
+
+                    const productTag = document.createElement('div');
+                    productTag.classList.add('product-tag');
+                    productTag.textContent = product.Tag;
+
+                    const imgBox = document.createElement('div');
+                    imgBox.classList.add('img-box');
+                    const img = document.createElement('img');
+                    img.src = `/upload/images/${product.FileName}`;
+                    img.alt = '';
+                    imgBox.appendChild(img);
+
+                    const infoBox = document.createElement('div');
+                    infoBox.classList.add('info-box');
+
+                    const scoreDiv = document.createElement('div');
+                    scoreDiv.classList.add('score');
+                    const scoreImg = document.createElement('img');
+                    scoreImg.src = '/upload/images/star-empty.svg';
+                    scoreImg.alt = '';
+                    const scoreText = document.createTextNode('評分 ');
+                    const scoreNumber = document.createElement('span');
+                    scoreNumber.classList.add('number');
+                    scoreNumber.textContent = product.Score;
+                    const scoreStars = document.createElement('div');
+                    scoreStars.classList.add('stars');
+                    for (let i = 0; i < 5; i++) {
+                        const starImg = document.createElement('img');
+                        starImg.src = '/upload/images/star 1.svg';
+                        starImg.alt = '';
+                        scoreStars.appendChild(starImg);
+                    }
+                    scoreDiv.appendChild(scoreImg);
+                    scoreDiv.appendChild(scoreText);
+                    scoreDiv.appendChild(scoreNumber);
+                    scoreDiv.appendChild(scoreStars);
+
+                    const discussionDiv = document.createElement('div');
+                    discussionDiv.classList.add('disscussion');
+                    const discussionImg = document.createElement('img');
+                    discussionImg.src = '/upload/images/Vector2.png';
+                    discussionImg.alt = '';
+                    const discussionText = document.createTextNode(' 位藥師參與討論');
+                    const discussionNumber = document.createElement('span');
+                    discussionNumber.classList.add('number');
+                    discussionNumber.textContent = product.Popularity;
+                    discussionDiv.appendChild(discussionImg);
+                    discussionDiv.appendChild(discussionNumber);
+                    discussionDiv.appendChild(discussionText);
+
+                    const titleElement = document.createElement('p');
+                    titleElement.textContent = product.Title;
+
+                    const browseContentLink = document.createElement('a');
+                    browseContentLink.href = `/Product/Content/${product.Id}`;
+                    browseContentLink.textContent = '瀏覽內容';
+
+                    infoBox.appendChild(scoreDiv);
+                    infoBox.appendChild(discussionDiv);
+                    infoBox.appendChild(titleElement);
+                    infoBox.appendChild(browseContentLink);
+
+                    productElement.appendChild(productTag);
+                    productElement.appendChild(imgBox);
+                    productElement.appendChild(infoBox);
+
+                    recommandContainer.appendChild(productElement);
+                });
+                page++;
+                showStar();
+            })
+            .catch(error => {
+                console.error('error:', error);
+            });
+    });
+</script>

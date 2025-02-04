@@ -1,0 +1,101 @@
+﻿<link href="~/css/header.css" rel="stylesheet" asp-append-version="true" />
+
+<input id="menu-control" type="checkbox" />
+<header>
+    <label id="MenuControl" for="menu-control">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <nav>
+        <a href="/">
+            <div class="logo">
+                <img src="/upload/images/LOGO.png" alt="" />
+            </div>
+        </a>
+        <div class="menu-container">
+            <ul class="menu">
+                <li>
+                    <a href="/About">
+                        <div class="img-box">
+                            <div class="line"></div>
+                            <img src="/upload/images/Rectangle 18.png" alt="" />
+                        </div>
+                        <span>關於荷友舒</span>
+                    </a>
+                </li>
+                <li class="location-container">
+                    <a href="javascript:;" class="location">
+                        <div class="img-box">
+                            <div class="line"></div>
+                            <img src="/upload/images/Rectangle 18.png" alt="" />
+                        </div>
+                        <span>荷友舒藥局位置</span>
+                    </a>
+                    <ul class="pc-submenu">
+                        <li>
+                            <a href="/Location/Map"> <span>全台分布位置</span></a>
+                        </li>
+                        <li class="line"></li>
+                        <li>
+                            <a href="/Location"> <span>北中南藥局</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mobile-submenu">
+                    <ul>
+                        <li>
+                            <a href="/Location/Map"> <span>全台分布位置</span></a>
+                        </li>
+                        <li>
+                            <a href="/Location"> <span>北中南藥局</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Article">
+                        <div class="img-box">
+                            <div class="line"></div>
+                            <img src="/upload/images/Rectangle 18.png" alt="" />
+                        </div>
+                        <span>荷友舒聊百病</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/News">
+                        <div class="img-box">
+                            <div class="line"></div>
+                            <img src="/upload/images/Rectangle 18.png" alt="" />
+                        </div>
+                        <span>最新消息</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Product">
+                        <div class="img-box">
+                            <div class="line"></div>
+                            <img src="/upload/images/Rectangle 18.png" alt="" />
+                        </div>
+                        <span>藥師優品推薦</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Forum">
+                        <div class="img-box">
+                            <div class="line"></div>
+                            <img src="/upload/images/Rectangle 18.png" alt="" />
+                        </div>
+                        <span>藥品即時問</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script>
+    document.getElementsByClassName("location-container")[0].addEventListener('click', () => {
+        console.log('111')
+        document.getElementsByClassName("mobile-submenu")[0].classList.toggle("active")
+    })
+</script>

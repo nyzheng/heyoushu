@@ -1,0 +1,810 @@
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei';
+    font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+    .forum-container {
+        width: 100%;
+        margin-top: 70px;
+    }
+
+    .icon {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        z-index: 5;
+    }
+
+    .icon > a > img {
+        max-width: 60px;
+    }
+
+    .area1 {
+        width: 100%;
+    }
+
+    .area1 > .content {
+        width: 100%;
+    }
+
+        .area1 > .content > .banner-box {
+            width: 100%;
+            display: none;
+        }
+
+    .area1 > .content > .banner-box img {
+        width: 100%;
+        max-height: 600px;
+    }
+    .area1 > .content > .mobile-banner-box {
+        display: block;
+    }
+        .area1 > .content > .mobile-banner-box img {
+            width: 100%;
+        }
+
+    .area2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #f8f8f8; */
+    }
+
+    .area2 > .content {
+        width: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 0px;
+    }
+
+    .area2 > .content > .btn-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 0 60px 0;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .area2 > .content > .btn-box > .active {
+        color: #ffffff;
+        background-color: #e84c2e;
+    }
+
+
+    .area2 > .content > .btn-box > button {
+        border: #e84c2e solid 1px;
+        color: #e84c2e;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 15px 25px 15px 25px;
+        background-color: #ffffff;
+        white-space: nowrap; /* 文字不换行 */
+    }
+
+    .area2 > .content > .banner-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .area2 > .content > .banner-box > img {
+        width: 100%;
+    }
+
+    .area3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #f8f8f8; */
+    }
+
+    .area3 > .content {
+        width: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 0px;
+    }
+
+    .area3 > .content > .question {
+        width: 100%;
+        border: solid 0.5px #c7c7c7;
+        border-radius: 20px;
+        /* position: relative; */
+        margin: 0 0 50px 0;
+        font-weight: 700;
+    }
+
+    .area3 > .content > .question > .box-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #e84c2e;
+        border-radius: 20px 20px 0 0;
+        color: #ffffff;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .area3 > .content > .question > .box-header > .question-icon > img {
+        width: 50px;
+    }
+
+    .area3 > .content > .question > .box-header > .text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .area3 > .content > .question > .box-header > button {
+        background-color: transparent;
+        border: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .custom-plus-button {
+        display: flex;
+        border: none;
+        background-color: transparent;
+        color: #007bff;
+        font-size: 2em;
+        cursor: pointer;
+        padding: 0;
+        margin-left: 10px;
+        position: relative;
+    }
+
+    .custom-plus-button:hover {
+        color: #0056b3;
+    }
+
+    .custom-plus-button::after {
+        content: '+';
+        position: absolute;
+        top: 0px;
+        left: -20px;
+        font-size: 1.5em;
+    }
+
+    .custom-plus-button.minus::after {
+        content: '-';
+        font-size: 1.5em;
+    }
+
+    .area3 > .content > .question > .answer-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .area3 > .content > .question > .answer-box > .answer-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+        .area3 > .content > .question > .answer-box > .answer-content > .answer-detail > .answer-detail-box {
+            display: flex;
+            align-items: center;
+        }
+
+            .area3 > .content > .question > .answer-box > .answer-content > .answer-detail > .answer-detail-box > .img-box > img {
+                max-height: 50px;
+            }
+
+    .area3 > .content > .question > .answer-box > .answer-content > .answer-detail {
+        width: calc(100% - 100px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .area3 > .content > .question > .answer-box > .answer-content > .answer-detail::after {
+        content: ''; /* 设置伪元素的内容为空 */
+        width: 100%; /* 设置宽度为父元素的宽度 */
+        height: 2px; /* 设置边线的高度 */
+        background-color: #ccc; /* 设置边线的颜色 */
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-title {
+        text-align: center;
+        color: #e84c2e;
+        font-size: 24px;
+        margin: 20px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+    .area3 > .content > .question > .answer-box > .reply-content > form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail {
+        width: calc(100% - 100px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 40px 0;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail .reply-input {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail .reply-input div {
+        display: flex;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form label {
+        width: 60px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form input,
+    textarea {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #f8f8f8;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form input {
+        height: 30px;
+        padding: 0 10px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form textarea {
+        height: 100px;
+        padding: 10px;
+    }
+
+    .area3
+        > .content
+        > .question
+        > .answer-box
+        > .reply-content
+        > .reply-detail
+        > form
+        .area3
+        > .content
+        > .question
+        > .answer-box
+        > .reply-content
+        > .reply-detail
+        button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail button {
+        border: none;
+        background-color: transparent;
+    }
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail button img {
+        width: 50px;
+    }
+    .area4 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .area4 > .content {
+        width: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: solid 1px #c7c7c7;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+    }
+    .area4 > .content > .request-title {
+        text-align: center;
+        color: #e84c2e;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .area4 > .content > .request-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+
+    .area4 > .content > .request-content > form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .area4 > .content > .request-content > form input {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #f8f8f8;
+        height: 30px;
+        padding: 0 10px;
+    }
+
+    .area4 > .content > .request-content > form textarea {
+        height: 100px;
+        padding: 10px;
+    }
+
+    .area4 > .content > .request-content > form > div {
+        display: flex;
+    }
+    .area4 > .content > .request-content > form label {
+        width: 60px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .area4 > .content > .request-content > form > .submit-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .area4 > .content > .request-content > form > .submit-box > button {
+        width: 100px;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 0;
+        background-color: #e84c2e;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .forum-container {
+        width: 100%;
+    }
+
+    .icon {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        z-index: 5;
+    }
+
+    .icon > a > img {
+        max-width: 60px;
+    }
+
+    .area1 {
+        width: 100%;
+    }
+
+    .area1 > .content {
+        width: 100%;
+    }
+
+    .area1 > .content > .banner-box {
+        width: 100%;
+    }
+
+    .area1 > .content > .banner-box img {
+        width: 100%;
+    }
+    .area1 > .content > .mobile-banner-box {
+        display: none;
+    }
+
+    .area2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #f8f8f8; */
+    }
+
+    .area2 > .content {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 600px);
+        padding: 60px 0px;
+    }
+
+    .area2 > .content > .btn-box {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0 0 60px 0;
+    }
+
+    .area2 > .content > .btn-box > .active {
+        color: #ffffff;
+        background-color: #e84c2e;
+    }
+
+
+    .area2 > .content > .btn-box > button {
+        border: #e84c2e solid 1px;
+        color: #e84c2e;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 18px;
+        padding: 15px 25px 15px 25px;
+        background-color: #ffffff;
+    }
+
+    .area2 > .content > .banner-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .area2 > .content > .banner-box > img {
+        width: 100%;
+    }
+
+    .area3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #f8f8f8; */
+    }
+
+    .area3 > .content {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 600px);
+        padding: 60px 0px;
+    }
+
+    .area3 > .content > .question {
+        width: 100%;
+        border: solid 0.5px #c7c7c7;
+        border-radius: 20px;
+        /* position: relative; */
+        margin: 0 0 50px 0;
+        font-weight: 700;
+    }
+
+    .area3 > .content > .question > .box-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #e84c2e;
+        border-radius: 20px 20px 0 0;
+        color: #ffffff;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .area3 > .content > .question > .box-header > .question-icon {
+    }
+
+    .area3 > .content > .question > .box-header > .text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .area3 > .content > .question > .box-header > button {
+        background-color: transparent;
+        border: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .custom-plus-button {
+        display: flex;
+        border: none;
+        background-color: transparent;
+        color: #007bff;
+        font-size: 2em;
+        cursor: pointer;
+        padding: 0;
+        margin-left: 10px;
+        position: relative;
+    }
+
+    .custom-plus-button:hover {
+        color: #0056b3;
+    }
+
+    .custom-plus-button::after {
+        content: '+';
+        position: absolute;
+        top: 10px;
+        left: -20px;
+        font-size: 1.5em;
+    }
+
+    .custom-plus-button.minus::after {
+        content: '-';
+        font-size: 1.5em;
+    }
+
+    .area3 > .content > .question > .answer-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .area3 > .content > .question > .answer-box > .answer-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+        .area3 > .content > .question > .answer-box > .answer-content > .answer-detail > .answer-detail-box {
+            display: flex;
+            align-items: center;
+        }
+        .area3 > .content > .question > .answer-box > .answer-content > .answer-detail > .answer-detail-box > .img-box > img {
+            max-height: 50px;
+        }
+
+    .area3 > .content > .question > .answer-box > .answer-content > .answer-detail {
+        width: calc(100% - 100px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .area3 > .content > .question > .answer-box > .answer-content > .answer-detail::after {
+        content: ''; /* 设置伪元素的内容为空 */
+        width: 100%; /* 设置宽度为父元素的宽度 */
+        height: 2px; /* 设置边线的高度 */
+        background-color: #ccc; /* 设置边线的颜色 */
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-title {
+        text-align: center;
+        color: #e84c2e;
+        font-size: 24px;
+        margin: 20px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+    .area3 > .content > .question > .answer-box > .reply-content > form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail {
+        width: calc(100% - 100px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 40px 0;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail .reply-input {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail .reply-input div {
+        display: flex;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail > form label {
+        width: 60px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form input,
+    textarea {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #f8f8f8;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form input {
+        height: 30px;
+        padding: 0 10px;
+    }
+
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail form textarea {
+        height: 100px;
+        padding: 10px;
+    }
+
+    .area3
+        > .content
+        > .question
+        > .answer-box
+        > .reply-content
+        > .reply-detail
+        > form
+        .area3
+        > .content
+        > .question
+        > .answer-box
+        > .reply-content
+        > .reply-detail
+        button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail button {
+        border: none;
+        background-color: transparent;
+    }
+    .area3 > .content > .question > .answer-box > .reply-content > .reply-detail button img {
+        width: 50px;
+    }
+    .area4 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .area4 > .content {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 600px);
+        border: solid 1px #c7c7c7;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+    }
+    .area4 > .content > .request-title {
+        text-align: center;
+        color: #e84c2e;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .area4 > .content > .request-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+
+    .area4 > .content > .request-content > form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .area4 > .content > .request-content > form input {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #f8f8f8;
+        height: 30px;
+        padding: 0 10px;
+    }
+
+    .area4 > .content > .request-content > form textarea {
+        height: 100px;
+        padding: 10px;
+    }
+
+    .area4 > .content > .request-content > form > div {
+        display: flex;
+    }
+    .area4 > .content > .request-content > form label {
+        width: 60px;
+        font-weight: 700;
+    }
+
+    .area4 > .content > .request-content > form > .submit-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .area4 > .content > .request-content > form > .submit-box > button {
+        width: 100px;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 0;
+        background-color: #e84c2e;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 16px;
+    }
+}

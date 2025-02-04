@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="荷友舒，始于藥師的匠心之愛，成就了一支匯聚智慧的藥學專業團隊。自成立以來，我們秉持著「健康舒適，藥到溫馨」的理念，致力於為每位顧客提供專業、溫馨、安心的藥物服務。我們的歷程是專業的藥學旅程，每一步都是對顧客健康的一份熱愛。">
+    <title>荷友舒藥醫聯盟｜@Html.Raw(ViewData["Title"])</title>
+    <meta name="google-site-verification" content="2sBI54TlaRHwyNc8otqo518ySylVnHTE0bLYl8W13LU" />
+    <link rel="icon" href="/favicon.ICO" type="image/x-icon">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/heyoushu.styles.css" asp-append-version="true" />
+    <link href="~/css/reset.css" rel="stylesheet" asp-append-version="true" />
+    @RenderSection("HeadContent", required: false)
+</head>
+<body>
+    @await Component.InvokeAsync("Header")
+
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    @await Component.InvokeAsync("Footer")
+    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

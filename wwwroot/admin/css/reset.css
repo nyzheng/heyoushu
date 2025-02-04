@@ -1,0 +1,34 @@
+﻿body, ul, li, h1, h2, h3, h4, h5, h6, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+    body div {
+        box-sizing: border-box;
+    }
+
+        body div:focus {
+            outline: none;
+        }
+
+    body img {
+        /* 不能反白 */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        /* End */
+        vertical-align: middle;
+    }
+
+    body a {
+        text-decoration: none;
+    }
+
+    body input[type="checkbox"] {
+        margin: 0px;
+    }
+
+    body ul {
+        list-style: none;
+    }

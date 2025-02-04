@@ -1,0 +1,52 @@
+﻿.banner-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+}
+
+    .banner-container .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .banner-container .container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .banner-container .container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 4px;
+        margin: 5px;
+    }
+
+        .banner-container .container button.selected {
+            background-color: #0056b3;
+        }
+
+    .banner-container .container table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .banner-container .container th, .banner-container .container td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .banner-container .container th {
+        background-color: #f2f2f2;
+    }
+
+    .banner-container .container img {
+        max-width: 100px;
+        max-height: 100px;
+    }

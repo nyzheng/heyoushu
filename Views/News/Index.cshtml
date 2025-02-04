@@ -1,0 +1,134 @@
+﻿@model heyoushu.Models.NewsResult
+
+@{
+    var LatestNews = Model.LatestNews;
+    var NewsList = Model.NewsList;
+}
+@section HeadContent {
+    <meta name="description" content="最新醫藥訊息與保健知識一站式平台荷友舒藥局聯盟致力於成為您和家人健康的首選夥伴。我們不僅提供優質的醫藥服務，還在我們的網站上分享最新的醫藥訊息和豐富的保健知識，成為您可靠的健康資訊來源。在荷友舒藥局聯盟的網站上，您可以找到最新的醫藥動態和保健資訊。我們的專業藥劑師團隊定期更新內容，涵蓋感冒與流感預防、高血壓管理、糖尿病控制、營養保健品選擇等多方面的健康知識。我們致力於提供準確、實用的資訊，幫助您和家人做出明智的健康決策。除了醫藥知識，我們的網站還提供季節性保健建議和實用健康小貼士，幫助您在不同季節保持健康。我們的目標是通過知識分享，提高大家的健康意識，促進全民健康。荷友舒藥局聯盟在全台北部、中部和南部均設有合作藥局，無論您身處何地，都能通過我們的網站獲取所需的健康資訊。我們還提供線上藥品訂購和快速送貨服務，讓您輕鬆享受便捷的醫藥服務。">
+}
+
+<link href="~/css/news.css" rel="stylesheet" asp-append-version="true" />
+
+
+<div class="article-page-container">
+    <div class="area1">
+        <div class="content">
+            <div class="news-container">
+                <div class="left">
+                    <div class="focus-box">
+                        <div class="title">
+                            <div class="cross-box">
+                                <div class="cross-row"></div>
+                                <div class="cross-column"></div>
+                            </div>
+                            <span>最新消息</span>
+                        </div>
+                        <div class="slider-container">
+                            <a href="javascript:;" class="control_prev">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </a>
+                            <a href="javascript:;" class="control_next">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                            <ul>
+                                @{
+                                    foreach (var news in LatestNews)
+                                    {
+                                        <li>
+                                            <a href="@("/News/Content/" + news.Id)">
+                                                <img src="@("/upload/images/" + @news.FileName)" />
+                                                <p>@news.Title</p>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                            <div class="dots_wrapper">
+                                @{
+                                    for (int i = 0; i < LatestNews.Count(); i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            <div class="dot_navigation slider_active_dot"></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="dot_navigation"></div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="area2">
+        <div class="content">
+            <div class="article-container">
+                <div class="item">
+                    <div class="article-box" id="article-box">
+                        @{
+                            foreach(var news in NewsList)
+                            {
+                                <a class="article" href="@("/News/Content/" + news.Id)">
+                                    <div class="img-box">
+                                        <img src="@("/upload/images/" + @news.FileName)" alt="" />
+                                    </div>
+                                    <p>@news.Title</p>
+                                </a>
+                            }
+                        }
+                    </div>
+                    <div class="more" id="more"><span>看更多 +</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/slider.js"></script>
+
+<script>
+    let page = 1;
+    const moreBtn = document.getElementById("more")
+    moreBtn.addEventListener('click', () => {
+        fetch(`/api/News/GetNewsList/${page}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(news => {
+                    const newsElement = document.createElement('a');
+                    newsElement.classList.add('article');
+                    newsElement.href = `/News/Content/${news.Id}`;
+
+                    const imgBox = document.createElement('div');
+                    imgBox.classList.add('img-box');
+                    const img = document.createElement('img');
+                    img.src = `/upload/images/${news.FileName}`;
+                    img.alt = '';
+                    imgBox.appendChild(img);
+
+                    const titleElement = document.createElement('p');
+                    titleElement.textContent = news.Title;
+
+                    newsElement.appendChild(imgBox);
+                    newsElement.appendChild(titleElement);
+
+                    const articleBox = document.getElementById("article-box");
+                    articleBox.appendChild(newsElement);
+                }); 
+                page++;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>

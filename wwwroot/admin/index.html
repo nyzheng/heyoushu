@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>荷友舒-管理後台</title>
+    <link rel="shortcut icon" href="../upload/images/icon.png" />
+    <link href="../lib/fontawesome-free-6.4.0-web/css/all.min.css" rel="stylesheet" />
+    <link href="css/reset.css??v=0.0.1" rel="stylesheet" />
+    <link href="css/main.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/default/default.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/home/home.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/about/about.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/article/article.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/image-manage/image-manage.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/pharmacy/pharmacy.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/pharmacist/pharmacist.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/order/order.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/footer/footer.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/tiktok/tiktok.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/window/window.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/news/news.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/forum/forum.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/product/product.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/banner/banner.css??v=0.0.1" rel="stylesheet" />
+
+
+    <link href="components/login/login.css??v=0.0.1" rel="stylesheet" />
+    <link href="components/shared/shared.css??v=0.0.1" rel="stylesheet" />
+</head>
+    <body>
+        <div id="app_table">
+            <login-div v-if="loginShow" @update="LoginUpdate"></login-div>
+            <default-div v-if="!loginShow"></default-div>
+        </div>
+
+        <script src="../lib/axios/axios.min-1.3.6.js"></script>
+        <script src="../lib/vue3/vue.global.min-3.3.4.js"></script>
+        <script src="js/main.js??v=0.0.1" type="module"></script>
+    </body>
+</html>

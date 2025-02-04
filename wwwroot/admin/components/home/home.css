@@ -1,0 +1,462 @@
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft JhengHei';
+    font-size: 16px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .index-container {
+        width: 100%;
+    }
+
+        .index-container .icon {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+        }
+            .index-container .icon > a > img {
+                max-width: 60px;
+            }
+
+    .index-container .area1 {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .index-container .area1 > .content {
+        display:flex;
+        width: 100%;
+        position: relative;
+    }
+    .index-container .area1 > .content > .banner-box {
+        width: 100%;
+    }
+    .index-container .area1 > .content > .banner-box img {
+        width: 100%;
+    }
+
+        .index-container .area1 > .content > .mobile-banner-box {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            position: relative;
+        }
+
+            .index-container .area1 > .content > .mobile-banner-box img {
+                width: 500px;
+                height: 500px;
+
+            }
+
+
+
+    .index-container .area2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+        .index-container .area2 > .content {
+            /* max-width: 1280px; */
+            width: calc(100% - 40px);
+        }
+
+            .index-container .area2 > .content > .title {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 10px;
+                margin: 40px 0;
+            }
+
+                .index-container .area2 > .content > .title > .cross-box {
+                    position: relative;
+                    width: 25px;
+                    height: 25px;
+                }
+
+                    .index-container .area2 > .content > .title > .cross-box > .cross-row {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 100%;
+                        height: 25%;
+                        background-color: #e84c2e;
+                    }
+
+                    .index-container .area2 > .content > .title > .cross-box > .cross-column {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 25%;
+                        height: 100%;
+                        background-color: #e84c2e;
+                    }
+
+                .index-container .area2 > .content > .title > span {
+                    color: #e84c2e;
+                    font-size: 34px;
+                    font-weight: 700;
+                }
+
+            .index-container .area2 > .content > .video-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+                .index-container .area2 > .content > .video-container > .item {
+                    width: calc((100% - 120px) / 5);
+                    display: flex;
+                    position: relative;
+                }
+
+                    .index-container .area2 > .content > .video-container > .item > a {
+                        width: 100%;
+                    }
+
+                        .index-container .area2 > .content > .video-container > .item > a > img {
+                            width: 100%;
+                        }
+
+
+    /* -*---- */
+
+    .index-container .area3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .index-container .area3 > .content {
+        max-width: 1280px;
+        width: calc(100% - 40px);
+    }
+
+    .index-container .area3 > .content > .title {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin: 40px 0;
+    }
+    .index-container .area3 > .content > .title > .cross-box {
+        position: relative;
+        width: 25px;
+        height: 25px;
+    }
+
+    .index-container .area3 > .content > .title > .cross-box > .cross-row {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 25%;
+        background-color: #e84c2e;
+    }
+    .index-container .area3 > .content > .title > .cross-box > .cross-column {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%;
+        height: 100%;
+        background-color: #e84c2e;
+    }
+    .index-container .area3 > .content > .title > span {
+        color: #e84c2e;
+        font-size: 34px;
+        font-weight: 700;
+    }
+        .index-container .area3 > .content > .person-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+        }
+
+    .index-container .area3 > .content > .person-box > .item {
+        width: calc((100% - 180px) / 4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .index-container .area3 > .content > .person-box > .item > img {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    .index-container .area3 > .content > .person-box > .item > p {
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .index-container .area3 > .content > .person-box > .item > p > span {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    /* ------ */
+
+    .index-container .area4 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 80px;
+        background-color: #f8f8f8;
+    }
+
+    .index-container .area4 > .content {
+        max-width: 1280px;
+        width: calc(100% - 40px);
+        padding: 60px;
+    }
+
+    .index-container .area4 > .content > .title {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+    .index-container .area4 > .content > .title > .cross-box {
+        position: relative;
+        width: 25px;
+        height: 25px;
+    }
+
+    .index-container .area4 > .content > .title > .cross-box > .cross-row {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 25%;
+        background-color: #e84c2e;
+    }
+    .index-container .area4 > .content > .title > .cross-box > .cross-column {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%;
+        height: 100%;
+        background-color: #e84c2e;
+    }
+    .index-container .area4 > .content > .title > span {
+        color: #e84c2e;
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    .index-container .area4 > .content > .article-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        position: relative;
+    }
+
+    .index-container .area4 > .content > .article-container > .item {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .index-container .area4 > .content > .article-container > .item > .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .index-container .area4 > .content > .article-container > .item > .title > p {
+        font-size: 28px;
+        font-weight: 700;
+        position: relative;
+    }
+    .index-container .area4 > .content > .article-container > .item > .title > p::after {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        content: '';
+        width: 20px;
+        height: 4px;
+        background-color: #e84c2e;
+    }
+
+    .index-container .area4 > .content > .article-container > .item > .article-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 60px;
+    }
+    .index-container .area4 > .content > .article-container > .item > .article-box > .article {
+        width: calc((100% - 120px) / 3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .index-container .area4 > .content > .article-container > .item > .article-box > .article > .img-box {
+        width: 100%;
+        height: 210px;
+    }
+
+    .index-container .area4 > .content > .article-container > .item > .article-box > .article > p {
+        font-weight: 700;
+        margin: 10px 0 0 0;
+        font-size: 20px;
+    }
+    .index-container .area4 > .content > .article-container > .item > .article-box > .article > .img-box > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    /* ----- */
+
+    .index-container .area5 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .index-container .area5 > .content {
+        max-width: 1280px;
+        width: calc(100% - 40px);
+        padding: 0 60px;
+
+    }
+
+    .index-container .area5 > .content > .title {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+    .index-container .area5 > .content > .title > .cross-box {
+        position: relative;
+        width: 25px;
+        height: 25px;
+    }
+
+    .index-container .area5 > .content > .title > .cross-box > .cross-row {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 25%;
+        background-color: #e84c2e;
+    }
+    .index-container .area5 > .content > .title > .cross-box > .cross-column {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%;
+        height: 100%;
+        background-color: #e84c2e;
+    }
+    .index-container .area5 > .content > .title > span {
+        color: #e84c2e;
+        font-size: 34px;
+        font-weight: 700;
+    }
+            .index-container .area5 > .content > a > .map-box {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+    .index-container .area5 > .content > a > .map-box > img {
+        width: 100%;
+    }
+}
+
+.window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px #000000;
+    box-sizing: border-box;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+    .window > .box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 0px 40px;
+        box-sizing: border-box;
+    }
+    .window > .box > .small-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+        .window > .box > .small-box > .image-box > img {
+            max-width: 100%;
+        }
+    .window > .box > input {
+        width: calc(100% - 68px);
+        height: 30px;
+        box-sizing: border-box;
+    }
+    .window > .button-box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        padding: 0px 40px;
+    }
+    
